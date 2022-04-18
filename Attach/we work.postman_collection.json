@@ -22,28 +22,7 @@
 						],
 						"body": {
 							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "name",
-									"value": "eslam elbanna",
-									"type": "text"
-								},
-								{
-									"key": "email",
-									"value": "eslam@gmail.com",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "123",
-									"type": "text"
-								},
-								{
-									"key": "photo",
-									"type": "file",
-									"src": "/E:/WhatsApp Image 2021-09-25 at 1.33.08 AM.jpeg"
-								}
-							]
+							"formdata": []
 						},
 						"url": {
 							"raw": "localhost:8000/api/admin/auth/create-admin",
@@ -89,8 +68,403 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "update admin",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|1pe2EQZsapvo5Yn2kz7dndXupyl01uoCi3Tax3uG",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"eslam 3\",\r\n    \"email\": \"eslam4@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/admin/auth/update-admin/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"auth",
+								"update-admin",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete admin",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|1pe2EQZsapvo5Yn2kz7dndXupyl01uoCi3Tax3uG",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/admin/auth/delete-admin/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"auth",
+								"delete-admin",
+								"1"
+							]
+						}
+					},
+					"response": []
 				}
 			]
+		},
+		{
+			"name": "Clients",
+			"item": [
+				{
+					"name": "add client",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|1pe2EQZsapvo5Yn2kz7dndXupyl01uoCi3Tax3uG",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/E:/WhatsApp Image 2021-09-25 at 1.33.08 AM.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/admin/auth/add-client",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"auth",
+								"add-client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get clients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/user/get-clients",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"get-clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update client",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|1pe2EQZsapvo5Yn2kz7dndXupyl01uoCi3Tax3uG",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/E:/WhatsApp Image 2021-09-25 at 1.33.08 AM.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/admin/auth/update-client/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"auth",
+								"update-client",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete client",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|1pe2EQZsapvo5Yn2kz7dndXupyl01uoCi3Tax3uG",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/admin/auth/delete-client/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"auth",
+								"delete-client",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "teams",
+			"item": [
+				{
+					"name": "add new team memeber",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|1pe2EQZsapvo5Yn2kz7dndXupyl01uoCi3Tax3uG",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "eslam ahmed elbanna",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/E:/WhatsApp Image 2021-09-25 at 1.33.08 AM.jpeg"
+								},
+								{
+									"key": "job_title",
+									"value": "software engineer",
+									"type": "text"
+								},
+								{
+									"key": "job_description",
+									"value": "laravel dev",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/admin/auth/add-team-member",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"auth",
+								"add-team-member"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get teams",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/user/get-teams",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"get-teams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update team memeber",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|1pe2EQZsapvo5Yn2kz7dndXupyl01uoCi3Tax3uG",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "eslam 888",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/E:/WhatsApp Image 2021-09-25 at 1.33.08 AM.jpeg"
+								},
+								{
+									"key": "job_title",
+									"value": "rrrrrr",
+									"type": "text"
+								},
+								{
+									"key": "job_description",
+									"value": "kkkkkkkk",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/admin/auth/update-team-member/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"auth",
+								"update-team-member",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete team member",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|1pe2EQZsapvo5Yn2kz7dndXupyl01uoCi3Tax3uG",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/admin/auth/delete-team-member/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"auth",
+								"delete-team-member",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "testttttt",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "eslam elbanna",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "eslam2@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"type": "text"
+						},
+						{
+							"key": "photo",
+							"type": "file",
+							"src": "/E:/WhatsApp Image 2021-09-25 at 1.33.08 AM.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/api/create-admin",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"create-admin"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
