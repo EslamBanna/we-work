@@ -58,6 +58,13 @@ return [
             'visibility' => 'public',
             'throw' => false,
         ],
+        'teams' => [
+            'driver' => 'local',
+            'root' => base_path() . '/public/images/teams/',
+            'url' => env('APP_URL').'/public',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
 
         's3' => [
             'driver' => 's3',

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\TeamController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +34,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::group(['prefix' => 'auth', 'middleware' => 'auth:sanctum'], function () {
         Route::post('create-admin', [AdminController::class, 'createAdmin']);
         Route::post('add-client', [ClientController::class, 'insertClient']);
+        Route::post('add-team-member', [TeamController::class, 'insertTeamMember']);
     });
     // end authenticated
 });
@@ -41,5 +43,6 @@ Route::group(['prefix' => 'admin'], function () {
 // start user apis
 Route::group(['prefix' => 'user'], function () {
 Route::get('get-clients',[ClientController::class, 'getClients']);
+Route::get('get-teams',[TeamController::class, 'getTeams']);
 });
 // end user apis
