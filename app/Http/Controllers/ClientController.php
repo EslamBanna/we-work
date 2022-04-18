@@ -34,4 +34,38 @@ class ClientController extends Controller
             return $this->returnError(201, $e->getMessage());
         }
     }
+
+    public function updateClient($clientId, Request $request)
+    {
+        try {
+            $client = Client::find($clientId);
+            if (!$client) {
+                return $this->returnError(202, 'client not founded');
+            }
+            $photo = $client['photo'];
+            if ($request->hasFile('photo')) {
+                $photo = $this->saveImage($request->photo, 'clients');
+            }
+            $client->update([
+                'photo' => $photo
+            ]);
+            return  $this->returnSuccessMessage('success');
+        } catch (\Exception $e) {
+            return $this->returnError(201, $e->getMessage());
+        }
+    }
+
+    public function deleteClient($clientId)
+    {
+        try {
+            $client = Client::find($clientId);
+            if (!$client) {
+                return $this->returnError(202, 'client not founded');
+            }
+            $client->delete();
+            return  $this->returnSuccessMessage('success');
+        } catch (\Exception $e) {
+            return $this->returnError(201, $e->getMessage());
+        }
+    }
 }

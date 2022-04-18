@@ -51,17 +51,49 @@ class AdminController extends Controller
                 $code = $this->returnCodeAccordingToInput($validate);
                 return $this->returnValidationError($code, $validate);
             }
-            $photo = "";
-            if ($request->has('photo')) {
-                $photo = $this->saveImage($request->photo, 'admins');
-            }
             Admin::create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
-                'photo' => $photo
             ]);
             return $this->returnSuccessMessage('success');
+        } catch (\Exception $e) {
+            return $this->returnError(201, $e->getMessage());
+        }
+    }
+
+    public function updateAdmin($adminId, Request $request)
+    {
+        try {
+            $admin = Admin::find($adminId);
+            if (!$admin) {
+                return $this->returnError(202, 'admin not founded');
+            }
+            $check_admins = Admin::where('email', $request->email)
+                ->where('id', '!=', Auth()->user()->id)
+                ->count();
+            if ($check_admins > 0) {
+                return $this->returnError(203, 'this email is taken before');
+            }
+            $admin->update([
+                'name' => $request->name ?? $admin->name,
+                'email' => $request->email ?? $admin->email,
+            ]);
+            return $this->returnSuccessMessage('updated successfully');
+        } catch (\Exception $e) {
+            return $this->returnError(201, $e->getMessage());
+        }
+    }
+
+    public function deleteAdmin($adminId)
+    {
+        try {
+            $admin = Admin::find($adminId);
+            if (!$admin) {
+                return $this->returnError(202, 'admin not founded');
+            }
+            $admin->delete();
+            return $this->returnSuccessMessage('deleted successfully');
         } catch (\Exception $e) {
             return $this->returnError(201, $e->getMessage());
         }

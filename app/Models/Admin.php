@@ -15,7 +15,6 @@ class Admin extends Authenticatable
         'name',
         'email',
         'password',
-        'photo'
     ];
 
     protected $hidden = ['password'];
@@ -27,10 +26,5 @@ class Admin extends Authenticatable
     public function getEmailAttribute($value)
     {
         return $value ?? "";
-    }
-    public function getPhotoAttribute($value)
-    {
-        $actual_link = (isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
-        return ($value == null ? '' : $actual_link . 'images/admins/' . $value);
     }
 }

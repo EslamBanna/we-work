@@ -33,8 +33,15 @@ Route::group(['prefix' => 'admin'], function () {
     //start authenticated
     Route::group(['prefix' => 'auth', 'middleware' => 'auth:sanctum'], function () {
         Route::post('create-admin', [AdminController::class, 'createAdmin']);
+        Route::put('update-admin/{id}', [AdminController::class, 'updateAdmin']);
+        Route::delete('delete-admin/{id}', [AdminController::class, 'deleteAdmin']);
         Route::post('add-client', [ClientController::class, 'insertClient']);
+        Route::post('update-client/{id}', [ClientController::class, 'updateClient']);
+        Route::delete('delete-client/{id}', [ClientController::class, 'deleteClient']);
+        
         Route::post('add-team-member', [TeamController::class, 'insertTeamMember']);
+        Route::post('update-team-member/{id}', [TeamController::class, 'updateTeamMember']);
+        Route::delete('delete-team-member/{id}', [TeamController::class, 'deleteTeamMember']);
     });
     // end authenticated
 });
