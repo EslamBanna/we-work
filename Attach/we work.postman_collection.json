@@ -25,11 +25,13 @@
 							"formdata": []
 						},
 						"url": {
-							"raw": "localhost:8000/api/admin/auth/create-admin",
+							"raw": "https://backend-elbanna.we-work.pro/api/admin/auth/create-admin",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"backend-elbanna",
+								"we-work",
+								"pro"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"admin",
@@ -55,11 +57,13 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8000/api/admin/login",
+							"raw": "https://backend-elbanna.we-work.pro/api/admin/login",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"backend-elbanna",
+								"we-work",
+								"pro"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"admin",
@@ -90,11 +94,13 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8000/api/admin/auth/update-admin/1",
+							"raw": "https://backend-elbanna.we-work.pro/api/admin/auth/update-admin/1",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"backend-elbanna",
+								"we-work",
+								"pro"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"admin",
@@ -118,11 +124,13 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:8000/api/admin/auth/delete-admin/1",
+							"raw": "https://backend-elbanna.we-work.pro/api/admin/auth/delete-admin/1",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"backend-elbanna",
+								"we-work",
+								"pro"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"admin",
@@ -423,6 +431,61 @@
 			]
 		},
 		{
+			"name": "join us",
+			"item": [
+				{
+					"name": "insert join us",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "eslam elbanna",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "eslamelbanna02@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "job_title",
+									"value": "larvel developer",
+									"type": "text"
+								},
+								{
+									"key": "resume",
+									"type": "file",
+									"src": "/E:/eslam elbanna old.pdf"
+								},
+								{
+									"key": "job_description",
+									"value": "back-end software engineer",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/user/join-us",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"join-us"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "testttttt",
 			"request": {
 				"method": "POST",
@@ -453,11 +516,13 @@
 					]
 				},
 				"url": {
-					"raw": "localhost:8000/api/create-admin",
+					"raw": "https://backend-elbanna.we-work.pro/api/create-admin",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"backend-elbanna",
+						"we-work",
+						"pro"
 					],
-					"port": "8000",
 					"path": [
 						"api",
 						"create-admin"
