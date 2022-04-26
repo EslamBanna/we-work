@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\JoinUsController;
 use App\Http\Controllers\TeamController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -51,5 +52,6 @@ Route::group(['prefix' => 'admin'], function () {
 Route::group(['prefix' => 'user'], function () {
 Route::get('get-clients',[ClientController::class, 'getClients']);
 Route::get('get-teams',[TeamController::class, 'getTeams']);
+Route::post('join-us',[JoinUsController::class, 'joinUs']);
 });
 // end user apis
