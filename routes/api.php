@@ -43,6 +43,9 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('add-team-member', [TeamController::class, 'insertTeamMember']);
         Route::post('update-team-member/{id}', [TeamController::class, 'updateTeamMember']);
         Route::delete('delete-team-member/{id}', [TeamController::class, 'deleteTeamMember']);
+
+        Route::get('/get-all-join-us', [JoinUsController::class, 'getAllJoinUs']);
+        Route::delete('/delete-join-us/{id}', [JoinUsController::class, 'deleteJoinUs']);
     });
     // end authenticated
 });

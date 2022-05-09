@@ -49,7 +49,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"eslam@gmail.com\",\r\n    \"password\": \"123\"\r\n}",
+							"raw": "{\r\n    \"email\": \"eslam2@gmail.com\",\r\n    \"password\": \"123\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -57,13 +57,11 @@
 							}
 						},
 						"url": {
-							"raw": "https://backend-elbanna.we-work.pro/api/admin/login",
-							"protocol": "https",
+							"raw": "localhost:8000/api/admin/login",
 							"host": [
-								"backend-elbanna",
-								"we-work",
-								"pro"
+								"localhost"
 							],
+							"port": "8000",
 							"path": [
 								"api",
 								"admin",
@@ -482,6 +480,61 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "get all join us",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|DwlVeQmf6jH2DKTK6WbXmwE3vjGtP83FQqtfBJqg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/admin/auth/get-all-join-us",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"auth",
+								"get-all-join-us"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|DwlVeQmf6jH2DKTK6WbXmwE3vjGtP83FQqtfBJqg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/admin/auth/delete-join-us/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"auth",
+								"delete-join-us",
+								"1"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -516,13 +569,11 @@
 					]
 				},
 				"url": {
-					"raw": "https://backend-elbanna.we-work.pro/api/create-admin",
-					"protocol": "https",
+					"raw": "localhost:8000/api/create-admin",
 					"host": [
-						"backend-elbanna",
-						"we-work",
-						"pro"
+						"localhost"
 					],
+					"port": "8000",
 					"path": [
 						"api",
 						"create-admin"
