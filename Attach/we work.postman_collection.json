@@ -2,7 +2,8 @@
 	"info": {
 		"_postman_id": "da210621-7e60-4aed-be6c-414c6bec066a",
 		"name": "we work",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17948569"
 	},
 	"item": [
 		{
@@ -152,7 +153,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer 1|1pe2EQZsapvo5Yn2kz7dndXupyl01uoCi3Tax3uG",
+								"value": "Bearer 2|dh65OecSOIBIiwNAZfxRzThiI6IwQvtNEcR2DelP",
 								"type": "text"
 							}
 						],
@@ -162,7 +163,7 @@
 								{
 									"key": "photo",
 									"type": "file",
-									"src": "/E:/WhatsApp Image 2021-09-25 at 1.33.08 AM.jpeg"
+									"src": "/E:/Render Me 1-1.m4v"
 								}
 							]
 						},
@@ -331,11 +332,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8000/api/user/get-teams",
+							"raw": "https://backend-elbanna.we-work.pro/api/user/get-teams",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"backend-elbanna",
+								"we-work",
+								"pro"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"user",
@@ -488,16 +491,18 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer 1|DwlVeQmf6jH2DKTK6WbXmwE3vjGtP83FQqtfBJqg",
+								"value": "Bearer 2|mZtVeQBfdn6pBqi2iWJuUoxheGKMnQ2K3oOponT9",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "localhost:8000/api/admin/auth/get-all-join-us",
+							"raw": "https://backend-elbanna.we-work.pro/api/admin/auth/get-all-join-us",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"backend-elbanna",
+								"we-work",
+								"pro"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"admin",
@@ -531,6 +536,163 @@
 								"auth",
 								"delete-join-us",
 								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "projects",
+			"item": [
+				{
+					"name": "apps",
+					"item": [
+						{
+							"name": "get all mobile application projects",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/user/get-all-mobile-projects",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user",
+										"get-all-mobile-projects"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "discover-more-apps",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/user/discover-more-apps",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user",
+										"discover-more-apps"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-app-info",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/user/get-app-info/10",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user",
+										"get-app-info",
+										"10"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "websites",
+					"item": [
+						{
+							"name": "get-website-projects",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/user/get-website-projects",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user",
+										"get-website-projects"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-website-info",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/user/get-website-info/6",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user",
+										"get-website-info",
+										"6"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "get all projects",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/user/projects",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dummy data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/user/dummy-data",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"dummy-data"
 							]
 						}
 					},

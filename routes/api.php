@@ -40,7 +40,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('add-client', [ClientController::class, 'insertClient']);
         Route::post('update-client/{id}', [ClientController::class, 'updateClient']);
         Route::delete('delete-client/{id}', [ClientController::class, 'deleteClient']);
-        
+
         Route::post('add-team-member', [TeamController::class, 'insertTeamMember']);
         Route::post('update-team-member/{id}', [TeamController::class, 'updateTeamMember']);
         Route::delete('delete-team-member/{id}', [TeamController::class, 'deleteTeamMember']);
@@ -54,11 +54,21 @@ Route::group(['prefix' => 'admin'], function () {
 
 // start user apis
 Route::group(['prefix' => 'user'], function () {
-Route::get('get-clients',[ClientController::class, 'getClients']);
-Route::get('get-teams',[TeamController::class, 'getTeams']);
-Route::post('join-us',[JoinUsController::class, 'joinUs']);
+    Route::get('get-clients', [ClientController::class, 'getClients']);
+    Route::get('get-teams', [TeamController::class, 'getTeams']);
+    Route::post('join-us', [JoinUsController::class, 'joinUs']);
 
-Route::get('/dummy-data', [ProjectController::class, 'dummyData']);
-Route::get('/projects', [ProjectController::class, 'allProjects']);
+    Route::get('/dummy-data', [ProjectController::class, 'dummyData']);
+    Route::get('/projects', [ProjectController::class, 'allProjects']);
+    // mobile apis
+    Route::get('/get-all-mobile-projects', [ProjectController::class, 'getAllMobileProjects']);
+    Route::get('/discover-more-apps', [ProjectController::class, 'discoverMoreApps']);
+    Route::get('/get-app-info/{id}', [ProjectController::class, 'getAppInfo']);
+    // website apis
+    Route::get('/get-website-projects', [ProjectController::class, 'getAllWebsiteProjects']);
+    Route::get('/get-website-info/{id}', [ProjectController::class, 'getWebsiteInfo']);
+
+    // ui/ux apis
+    // TODO
 });
 // end user apis

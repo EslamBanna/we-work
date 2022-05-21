@@ -224,4 +224,103 @@ class ProjectController extends Controller
             return $this->returnError(201, $e->getMessage());
         }
     }
+
+    public function getAllMobileProjects()
+    {
+        try {
+            $projects = Project::with('image:project_id,attach')
+                ->select('id', 'title_en', 'title_ar', 'description_en', 'description_ar', 'link1 as google_play', 'link2 as app_store')
+                ->where('type_en', 'app')
+                ->get();
+            return $this->returnData('data', $projects);
+        } catch (\Exception $e) {
+            return $this->returnError(201, $e->getMessage());
+        }
+    }
+
+    public function discoverMoreApps()
+    {
+        try {
+            $projects = Project::select('id', 'logo', 'title_en', 'title_ar')
+                ->where('type_en', 'app')
+                ->latest()
+                ->get();
+            return $this->returnData('data', $projects);
+        } catch (\Exception $e) {
+            return $this->returnError(201, $e->getMessage());
+        }
+    }
+
+    public function getAppInfo($id)
+    {
+        try {
+            $app = Project::with('attachs:project_id,attach')
+                ->select(
+                    'id',
+                    'logo',
+                    'type_en',
+                    'type_ar',
+                    'title_en',
+                    'title_ar',
+                    'description_en',
+                    'description_ar',
+                    'link1 as google_play',
+                    'link2 as app_store',
+                    'updated_at'
+                )->find($id);
+
+            if (!$app) {
+                return $this->returnError(202, 'this app is not exist');
+            }
+            if ($app['type_en'] != 'app' || $app['type_ar'] != 'تطبيق') {
+                return $this->returnError(202, 'this is not app !!');
+            }
+            return $this->returnData('data', $app);
+        } catch (\Exception $e) {
+            return $this->returnError(201, $e->getMessage());
+        }
+    }
+
+    public function getAllWebsiteProjects()
+    {
+        try {
+            $projects = Project::with('image:project_id,attach')
+                ->select('id', 'title_en', 'title_ar', 'description_en', 'description_ar')
+                ->where('type_en', 'website')
+                ->get();
+            return $this->returnData('data', $projects);
+        } catch (\Exception $e) {
+            return $this->returnError(201, $e->getMessage());
+        }
+    }
+
+    public function getWebsiteInfo($id)
+    {
+        try {
+            $website = Project::with('attachs:project_id,attach')
+                ->select(
+                    'id',
+                    'logo',
+                    'type_en',
+                    'type_ar',
+                    'title_en',
+                    'title_ar',
+                    'description_en',
+                    'description_ar',
+                    'link1 as website_link',
+                    'updated_at'
+                )->find($id);
+
+            if (!$website) {
+                return $this->returnError(202, 'this website is not exist');
+            }
+
+            if ($website['type_en'] != 'website' || $website['type_ar'] != 'موقع') {
+                return $this->returnError(202, 'this is not website');
+            }
+            return $this->returnData('data', $website);
+        } catch (\Exception $e) {
+            return $this->returnError(201, $e->getMessage());
+        }
+    }
 }
