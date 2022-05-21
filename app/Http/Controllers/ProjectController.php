@@ -174,49 +174,51 @@ class ProjectController extends Controller
             $projects = [];
             $mobile_projects = Project::with('image:project_id,attach')
                 ->select('id')
-                ->where('type_ar', 'تطبيق')
+                ->where('type_en', 'app')
                 ->where('selected', 1)
                 ->get();
 
             $website_projects = Project::with('image:project_id,attach')
                 ->select('id')
-                ->where('type_ar', 'موقع')
+                ->where('type_en', 'website')
                 ->where('selected', 1)
                 ->get();
 
             $ui_ux_projects = Project::with('image:project_id,attach')
                 ->select('id', 'title_en', 'title_ar')
-                ->where('type_ar', 'ui/ux')
+                ->where('type_en', 'ui/ux')
+                ->get();
+            // 
+            $interior_design_projects = Project::with('image:project_id,attach')
+                ->select('id', 'title_en', 'title_ar')
+                ->where('type_en', 'interior design')
                 ->get();
 
-            // 
-            $ui_ux_projects = Project::with('image:project_id,attach')
+            $exterior_design_projects = Project::with('image:project_id,attach')
                 ->select('id', 'title_en', 'title_ar')
-                ->where('type_ar', 'ui/ux')
+                ->where('type_en', 'exterior design')
                 ->get();
-            $ui_ux_projects = Project::with('image:project_id,attach')
+            $shop_drawing_projects = Project::with('image:project_id,attach')
                 ->select('id', 'title_en', 'title_ar')
-                ->where('type_ar', 'ui/ux')
+                ->where('type_en', 'shop drawing')
                 ->get();
-            $ui_ux_projects = Project::with('image:project_id,attach')
+
+            $photography_projects = Project::with('image:project_id,attach')
                 ->select('id', 'title_en', 'title_ar')
-                ->where('type_ar', 'ui/ux')
+                ->where('type_en', 'photography')
                 ->get();
-            $ui_ux_projects = Project::with('image:project_id,attach')
+            $motion_graphics_projects = Project::with('image:project_id,attach')
                 ->select('id', 'title_en', 'title_ar')
-                ->where('type_ar', 'ui/ux')
-                ->get();
-            $ui_ux_projects = Project::with('image:project_id,attach')
-                ->select('id', 'title_en', 'title_ar')
-                ->where('type_ar', 'ui/ux')
-                ->get();
-            $ui_ux_projects = Project::with('image:project_id,attach')
-                ->select('id', 'title_en', 'title_ar')
-                ->where('type_ar', 'ui/ux')
+                ->where('type_en', 'motion graphics')
                 ->get();
             $projects['mobile_projects'] = $mobile_projects;
             $projects['website_projects'] = $website_projects;
             $projects['ui_ux_projects'] = $ui_ux_projects;
+            $projects['interior_design_projects'] = $interior_design_projects;
+            $projects['exterior_design_projects'] = $exterior_design_projects;
+            $projects['shop_drawing_projects'] = $shop_drawing_projects;
+            $projects['photography_projects'] = $photography_projects;
+            $projects['motion_graphics_projects'] = $motion_graphics_projects;
             return $this->returnData('data', $projects);
         } catch (\Exception $e) {
             return $this->returnError(201, $e->getMessage());
