@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\JoinUsController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TeamController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,7 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
+Route::get('/dummy-data', [ProjectController::class, 'dummyData']);
 // testttttttttttttttttttttttttttttttttttttttt
 Route::post('create-admin', [AdminController::class, 'createAdmin']);
 
@@ -57,5 +58,6 @@ Route::group(['prefix' => 'user'], function () {
 Route::get('get-clients',[ClientController::class, 'getClients']);
 Route::get('get-teams',[TeamController::class, 'getTeams']);
 Route::post('join-us',[JoinUsController::class, 'joinUs']);
+Route::get('/projects', [ProjectController::class, 'allProjects']);
 });
 // end user apis
