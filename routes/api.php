@@ -23,7 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/dummy-data', [ProjectController::class, 'dummyData']);
 // testttttttttttttttttttttttttttttttttttttttt
 Route::post('create-admin', [AdminController::class, 'createAdmin']);
 
@@ -58,6 +57,8 @@ Route::group(['prefix' => 'user'], function () {
 Route::get('get-clients',[ClientController::class, 'getClients']);
 Route::get('get-teams',[TeamController::class, 'getTeams']);
 Route::post('join-us',[JoinUsController::class, 'joinUs']);
+
+Route::get('/dummy-data', [ProjectController::class, 'dummyData']);
 Route::get('/projects', [ProjectController::class, 'allProjects']);
 });
 // end user apis

@@ -18,7 +18,8 @@ class ProjectController extends Controller
             // mobile
             for ($i = 0; $i < 5; $i++) {
                 $project_id = Project::insertGetId([
-                    'type' => 'تطبيق',
+                    'type_ar' => 'تطبيق',
+                    'type_en' => 'app',
                     'logo' => 'https://product.logo.com',
                     'title_en' => 'Title',
                     'title_ar' => 'عنوان',
@@ -38,7 +39,8 @@ class ProjectController extends Controller
             // wesite
             for ($i = 0; $i < 5; $i++) {
                 $project_id = Project::insertGetId([
-                    'type' => 'موقع',
+                    'type_ar' => 'موقع',
+                    'type_en' => 'website',
                     'logo' => 'https://product.logo.com',
                     'title_en' => 'Title',
                     'title_ar' => 'عنوان',
@@ -57,7 +59,8 @@ class ProjectController extends Controller
             // ui/ux
             for ($i = 0; $i < 5; $i++) {
                 $project_id = Project::insertGetId([
-                    'type' => 'ui/ux',
+                    'type_ar' => 'ui/ux',
+                    'type_en' => 'ui/ux',
                     'title_en' => 'Title',
                     'title_ar' => 'عنوان',
                     'description_en' => 'description',
@@ -74,7 +77,8 @@ class ProjectController extends Controller
             // تصميم داخلي
             for ($i = 0; $i < 5; $i++) {
                 $project_id = Project::insertGetId([
-                    'type' => 'تصميم داخلي',
+                    'type_ar' => 'تصميم داخلي',
+                    'type_en' => 'interior design',
                     'title_en' => 'Title',
                     'title_ar' => 'عنوان',
                     'description_en' => 'description',
@@ -91,7 +95,8 @@ class ProjectController extends Controller
             //تصميم خارجي
             for ($i = 0; $i < 5; $i++) {
                 $project_id = Project::insertGetId([
-                    'type' => 'تصميم خارجي',
+                    'type_ar' => 'تصميم خارجي',
+                    'type_en' => 'exterior design',
                     'title_en' => 'Title',
                     'title_ar' => 'عنوان',
                     'description_en' => 'description',
@@ -107,7 +112,8 @@ class ProjectController extends Controller
             //تصور سوقي
             for ($i = 0; $i < 5; $i++) {
                 $project_id = Project::insertGetId([
-                    'type' => 'تصور سوقي',
+                    'type_ar' => 'تصور سوقي',
+                    'type_en' => 'shop drawing',
                     'title_en' => 'Title',
                     'title_ar' => 'عنوان',
                     'description_en' => 'description',
@@ -123,7 +129,8 @@ class ProjectController extends Controller
             // تصوير
             for ($i = 0; $i < 5; $i++) {
                 $project_id = Project::insertGetId([
-                    'type' => 'تصوير',
+                    'type_ar' => 'تصوير',
+                    'type_en' => 'photography',
                     'title_en' => 'Title',
                     'title_ar' => 'عنوان',
                     'description_en' => 'description',
@@ -140,7 +147,8 @@ class ProjectController extends Controller
             // رسوم متحركة
             for ($i = 0; $i < 5; $i++) {
                 $project_id = Project::insertGetId([
-                    'type' => 'رسوم متحركة',
+                    'type_ar' => 'رسوم متحركة',
+                    'type_en' => 'motion graphics',
                     'title_en' => 'Title',
                     'title_ar' => 'عنوان',
                     'description_en' => 'description',
@@ -159,10 +167,56 @@ class ProjectController extends Controller
         }
     }
 
-    public function allProjects(){
-        try{
+    public function allProjects()
+    {
+        try {
             // $projects = Project::with('attachs')->groupBy('type')->get();
-            $projects = Project::with('attachs')->get();
+            $projects = [];
+            $mobile_projects = Project::with('image:project_id,attach')
+                ->select('id')
+                ->where('type_ar', 'تطبيق')
+                ->where('selected', 1)
+                ->get();
+
+            $website_projects = Project::with('image:project_id,attach')
+                ->select('id')
+                ->where('type_ar', 'موقع')
+                ->where('selected', 1)
+                ->get();
+
+            $ui_ux_projects = Project::with('image:project_id,attach')
+                ->select('id', 'title_en', 'title_ar')
+                ->where('type_ar', 'ui/ux')
+                ->get();
+
+            // 
+            $ui_ux_projects = Project::with('image:project_id,attach')
+                ->select('id', 'title_en', 'title_ar')
+                ->where('type_ar', 'ui/ux')
+                ->get();
+            $ui_ux_projects = Project::with('image:project_id,attach')
+                ->select('id', 'title_en', 'title_ar')
+                ->where('type_ar', 'ui/ux')
+                ->get();
+            $ui_ux_projects = Project::with('image:project_id,attach')
+                ->select('id', 'title_en', 'title_ar')
+                ->where('type_ar', 'ui/ux')
+                ->get();
+            $ui_ux_projects = Project::with('image:project_id,attach')
+                ->select('id', 'title_en', 'title_ar')
+                ->where('type_ar', 'ui/ux')
+                ->get();
+            $ui_ux_projects = Project::with('image:project_id,attach')
+                ->select('id', 'title_en', 'title_ar')
+                ->where('type_ar', 'ui/ux')
+                ->get();
+            $ui_ux_projects = Project::with('image:project_id,attach')
+                ->select('id', 'title_en', 'title_ar')
+                ->where('type_ar', 'ui/ux')
+                ->get();
+            $projects['mobile_projects'] = $mobile_projects;
+            $projects['website_projects'] = $website_projects;
+            $projects['ui_ux_projects'] = $ui_ux_projects;
             return $this->returnData('data', $projects);
         } catch (\Exception $e) {
             return $this->returnError(201, $e->getMessage());

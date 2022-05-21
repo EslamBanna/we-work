@@ -10,7 +10,8 @@ class Project extends Model
     use HasFactory;
 
     protected $fillable = [
-        'type',
+        'type_en',
+        'type_ar',
         'logo',
         'title_en',
         'title_ar',
@@ -24,5 +25,10 @@ class Project extends Model
     public function attachs()
     {
         return $this->hasMany(ProjectAttach::class, 'project_id');
+    }
+
+    public function image()
+    {
+        return $this->hasOne(ProjectAttach::class, 'project_id');
     }
 }
