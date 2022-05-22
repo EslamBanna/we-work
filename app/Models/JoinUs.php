@@ -12,6 +12,7 @@ class JoinUs extends Model
     protected $fillable = [
         'name',
         'email',
+        'phone',
         'job_title',
         'resume',
         'job_description'

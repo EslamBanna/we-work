@@ -13,15 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('teams', function (Blueprint $table) {
+        Schema::create('social_media', function (Blueprint $table) {
             $table->id();
-            $table->string('name_ar');
-            $table->string('name_en');
-            $table->string('photo')->nullable();
-            $table->string('job_title_ar')->nullable();
-            $table->string('job_title_en')->nullable();
-            $table->string('job_description_ar')->nullable();
-            $table->string('job_description_en')->nullable();
+            $table->string('instgram')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('youtube')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('snapchat')->nullable();
+            $table->string('linkedin')->nullable();
             $table->timestamps();
         });
     }
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('teams');
+        Schema::dropIfExists('social_media');
     }
 };

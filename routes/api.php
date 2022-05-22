@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\JoinUsController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\SocialMediaController;
 use App\Http\Controllers\TeamController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -56,6 +57,9 @@ Route::group(['prefix' => 'admin'], function () {
 
 // start user apis
 Route::group(['prefix' => 'user'], function () {
+
+    Route::get('/dummy-social', [SocialMediaController::class, 'dummySocial']);
+    Route::get('/get-social-info', [SocialMediaController::class, 'getSocialInfo']);
     
     Route::get('/dummy-sliders', [SliderController::class, 'dummySliders']);
     Route::get('/get-sliders', [SliderController::class, 'getSliders']);

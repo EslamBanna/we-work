@@ -10,10 +10,13 @@ class Team extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
+        'name_ar',
+        'name_en',
         'photo',
-        'job_title',
-        'job_description'
+        'job_title_ar',
+        'job_title_en',
+        'job_description_ar',
+        'job_description_en'
     ];
 
     public function getNameAttribute($value)

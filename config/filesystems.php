@@ -79,6 +79,13 @@ return [
             'visibility' => 'public',
             'throw' => false,
         ],
+        'sliders' => [
+            'driver' => 'local',
+            'root' => base_path() . '/public/images/sliders/',
+            'url' => env('APP_URL').'/public',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

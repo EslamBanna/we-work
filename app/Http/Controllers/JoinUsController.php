@@ -19,6 +19,7 @@ class JoinUsController extends Controller
             JoinUs::create([
                 'name' => $request->name,
                 'email' => $request->email,
+                'phone' => $request->phone,
                 'job_title' => $request->job_title,
                 'resume' => $resume,
                 'job_description' => $request->job_description

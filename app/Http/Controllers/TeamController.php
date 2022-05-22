@@ -20,10 +20,13 @@ class TeamController extends Controller
                 $photo = $this->saveImage($request->photo, 'teams');
             }
             Team::create([
-                'name' => $request->name,
+                'name_ar' => $request->name_ar,
+                'name_en' => $request->name_en,
                 'photo' => $photo,
-                'job_title' => $request->job_title,
-                'job_description' => $request->job_description
+                'job_title_ar' => $request->job_title_ar,
+                'job_title_en' => $request->job_title_en,
+                'job_description_ar' => $request->job_description_ar,
+                'job_description_en' => $request->job_description_en
             ]);
             return $this->returnSuccessMessage('success');
         } catch (\Exception $e) {
@@ -56,10 +59,13 @@ class TeamController extends Controller
                 $photo = substr($member->photo, $photo_len);
             }
             $member->update([
-                'name' => $request->name ?? $member->name,
+                'name_ar' => $request->name_ar ?? $member->name_ar,
+                'name_en' => $request->name_en ?? $member->name_en,
                 'photo' => $photo,
-                'job_title' => $request->job_title ?? $member->job_title,
-                'job_description' => $request->job_description ?? $member->job_description
+                'job_title_ar' => $request->job_title_ar ?? $member->job_title_ar,
+                'job_title_en' => $request->job_title_en ?? $member->job_title_en,
+                'job_description_ar' => $request->job_description_ar ?? $member->job_description_ar,
+                'job_description_en' => $request->job_description_en ?? $member->job_description_en
             ]);
             return $this->returnSuccessMessage('success');
         } catch (\Exception $e) {
