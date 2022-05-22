@@ -997,6 +997,105 @@
 			]
 		},
 		{
+			"name": "contact us",
+			"item": [
+				{
+					"name": "get contact info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/user/get-contact-info",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"get-contact-info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "contact us",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"eslam\",\r\n    \"email\": \"email@gmail.com\",\r\n    \"phone\": \"0123\",\r\n    \"identity_number\": \"14587963\",\r\n    \"type_of_contact\": \"إستفسار\",\r\n    \"title\": \"هاااام\",\r\n    \"msg\": \"test test test test test test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/user/contact-us",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"contact-us"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "slider",
+			"item": [
+				{
+					"name": "get sliders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/user/get-sliders",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"get-sliders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dummy data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/user/dummy-sliders",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"dummy-sliders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "testttttt",
 			"request": {
 				"method": "POST",
