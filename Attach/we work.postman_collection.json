@@ -555,7 +555,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "localhost:8000/api/user/get-all-mobile-projects",
+									"raw": "localhost:8000/api/user/get-mobile-projects",
 									"host": [
 										"localhost"
 									],
@@ -563,7 +563,7 @@
 									"path": [
 										"api",
 										"user",
-										"get-all-mobile-projects"
+										"get-mobile-projects"
 									]
 								}
 							},
@@ -651,6 +651,302 @@
 										"user",
 										"get-website-info",
 										"6"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "ui/ux",
+					"item": [
+						{
+							"name": "get all ui-ux projects",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/user/get-projects/type/ui-ux",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user",
+										"get-projects",
+										"type",
+										"ui-ux"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-ui-ux-info",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/user/get-project-info/type/ui-ux/15",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user",
+										"get-project-info",
+										"type",
+										"ui-ux",
+										"15"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "interior design",
+					"item": [
+						{
+							"name": "get all interior design projects",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/user/get-projects/type/interior-design",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user",
+										"get-projects",
+										"type",
+										"interior-design"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-interior design info",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/user/get-project-info/type/interior-design/15",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user",
+										"get-project-info",
+										"type",
+										"interior-design",
+										"15"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "exterior design",
+					"item": [
+						{
+							"name": "get all exterior design projects",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/user/get-projects/type/exterior-design",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user",
+										"get-projects",
+										"type",
+										"exterior-design"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-exterior design info",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/user/get-project-info/type/exterior-design/21",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user",
+										"get-project-info",
+										"type",
+										"exterior-design",
+										"21"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "shop drawing",
+					"item": [
+						{
+							"name": "get all shop drawing projects",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/user/get-projects/type/shop-drawing",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user",
+										"get-projects",
+										"type",
+										"shop-drawing"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-shop drawing info",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/user/get-project-info/type/shop-drawing/30",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user",
+										"get-project-info",
+										"type",
+										"shop-drawing",
+										"30"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "photography",
+					"item": [
+						{
+							"name": "get all photography projects",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/user/get-projects/type/photography",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user",
+										"get-projects",
+										"type",
+										"photography"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get photography info",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/user/get-project-info/type/photography/32",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user",
+										"get-project-info",
+										"type",
+										"photography",
+										"32"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "motion graphics",
+					"item": [
+						{
+							"name": "get motion graphic projects",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/user/get-motion-graphic-projects",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user",
+										"get-motion-graphic-projects"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get motion-graphic info",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/user/get-motion-graphic-info/36",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user",
+										"get-motion-graphic-info",
+										"36"
 									]
 								}
 							},

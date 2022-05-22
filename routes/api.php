@@ -61,14 +61,20 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('/dummy-data', [ProjectController::class, 'dummyData']);
     Route::get('/projects', [ProjectController::class, 'allProjects']);
     // mobile apis
-    Route::get('/get-all-mobile-projects', [ProjectController::class, 'getAllMobileProjects']);
+    Route::get('/get-mobile-projects', [ProjectController::class, 'getAllMobileProjects']);
     Route::get('/discover-more-apps', [ProjectController::class, 'discoverMoreApps']);
     Route::get('/get-app-info/{id}', [ProjectController::class, 'getAppInfo']);
     // website apis
     Route::get('/get-website-projects', [ProjectController::class, 'getAllWebsiteProjects']);
     Route::get('/get-website-info/{id}', [ProjectController::class, 'getWebsiteInfo']);
 
-    // ui/ux apis
-    // TODO
+    // fetching common project common data
+    Route::get('/get-projects/type/{type}', [ProjectController::class, 'getProjectsByType']);
+    Route::get('/get-project-info/type/{type}/{id}', [ProjectController::class, 'getProjectInfo']);
+
+    // motion graphics apis
+    Route::get('/get-motion-graphic-projects', [ProjectController::class, 'getMotionGraphicsProjects']);
+    Route::get('/get-motion-graphic-info/{id}', [ProjectController::class, 'getMotionGraphicInfo']);
+
 });
 // end user apis

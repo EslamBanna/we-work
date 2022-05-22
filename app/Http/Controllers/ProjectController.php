@@ -323,4 +323,98 @@ class ProjectController extends Controller
             return $this->returnError(201, $e->getMessage());
         }
     }
+
+    public function getProjectsByType($type)
+    {
+        try {
+            if ($type == 'ui-ux') {
+                $type = 'ui/ux';
+            } else {
+                $type = str_replace('-', ' ', $type);
+            }
+            $projects = Project::with('image:project_id,attach')
+                ->select('id', 'title_en', 'title_ar')
+                ->where('type_en', $type)
+                ->get();
+            return $this->returnData('data', $projects);
+        } catch (\Exception $e) {
+            return $this->returnError(201, $e->getMessage());
+        }
+    }
+
+    public function getProjectInfo($type, $id)
+    {
+        try {
+            if ($type == 'ui-ux') {
+                $type = 'ui/ux';
+            } else {
+                $type = str_replace('-', ' ', $type);
+            }
+            $project = Project::with('attachs:project_id,attach')
+                ->select(
+                    'id',
+                    'type_en',
+                    'type_ar',
+                    'title_en',
+                    'title_ar',
+                    'description_en',
+                    'description_ar',
+                    'updated_at'
+                )->find($id);
+
+            if (!$project) {
+                return $this->returnError(202, 'this ui/ux is not exist');
+            }
+
+            if ($project['type_en'] != $type) {
+                return $this->returnError(202, 'this is not ' . $type);
+            }
+            return $this->returnData('data', $project);
+        } catch (\Exception $e) {
+            return $this->returnError(201, $e->getMessage());
+        }
+    }
+
+
+    public function getMotionGraphicsProjects()
+    {
+        try {
+            $motion_graphics = Project::with('image:project_id,attach')
+                ->select('id', 'title_en', 'title_ar', 'description_en', 'description_ar')
+                ->where('type_en', 'motion graphics')
+                ->get();
+            return $this->returnData('data', $motion_graphics);
+        } catch (\Exception $e) {
+            return $this->returnError(201, $e->getMessage());
+        }
+    }
+
+    public function getMotionGraphicInfo($id)
+    {
+        try {
+            $motion_graphic = Project::with('attachs:project_id,attach')
+                ->select(
+                    'id',
+                    'type_en',
+                    'type_ar',
+                    'title_en',
+                    'title_ar',
+                    'description_en',
+                    'description_ar',
+                    'updated_at'
+                )->find($id);
+
+            if (!$motion_graphic) {
+                return $this->returnError(202, 'this motion graphic is not exist');
+            }
+
+            if ($motion_graphic['type_en'] != 'motion graphics' || $motion_graphic['type_ar'] != 'رسوم متحركة') {
+                return $this->returnError(202, 'this is not motion graphic');
+            }
+            return $this->returnData('data', $motion_graphic);
+        } catch (\Exception $e) {
+            return $this->returnError(201, $e->getMessage());
+        }
+    }
+
 }
