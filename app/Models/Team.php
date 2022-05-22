@@ -19,7 +19,11 @@ class Team extends Model
         'job_description_en'
     ];
 
-    public function getNameAttribute($value)
+    public function getNameEnAttribute($value)
+    {
+        return $value ?? "";
+    }
+    public function getNameArAttribute($value)
     {
         return $value ?? "";
     }
@@ -27,5 +31,22 @@ class Team extends Model
     {
         $actual_link = (isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
         return ($value == null ? '' : $actual_link . 'images/teams/' . $value);
+    }
+
+    public function getJobTitleEnAttribute($value)
+    {
+        return $value ?? "";
+    }
+    public function getJobTitleArAttribute($value)
+    {
+        return $value ?? "";
+    }
+    public function getJobDescriptionArAttribute($value)
+    {
+        return $value ?? "";
+    }
+    public function getJobDescriptionEnAttribute($value)
+    {
+        return $value ?? "";
     }
 }

@@ -14,8 +14,9 @@ class ProjectAttach extends Model
         'attach'
     ];
 
-    // public function getAttribute($value)
-    // {
-    //     return $value ?? "";
-    // }
+    public function getAttachAttribute($value)
+    {
+        $actual_link = (isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
+        return ($value == null ? '' : $actual_link . 'images/projects/' . $value);
+    }
 }
