@@ -5,6 +5,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\JoinUsController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\SliderController;
 use App\Http\Controllers\TeamController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -55,10 +56,14 @@ Route::group(['prefix' => 'admin'], function () {
 
 // start user apis
 Route::group(['prefix' => 'user'], function () {
-    Route::get('get-clients', [ClientController::class, 'getClients']);
-    Route::get('get-teams', [TeamController::class, 'getTeams']);
-    Route::post('join-us', [JoinUsController::class, 'joinUs']);
-    Route::post('contact-us', [ContactController::class, 'contactUs']);
+    
+    Route::get('/dummy-sliders', [SliderController::class, 'dummySliders']);
+    Route::get('/get-sliders', [SliderController::class, 'getSliders']);
+    Route::get('/get-clients', [ClientController::class, 'getClients']);
+    Route::get('/get-teams', [TeamController::class, 'getTeams']);
+    Route::post('/join-us', [JoinUsController::class, 'joinUs']);
+    Route::get('/get-contact-info', [ContactController::class, 'contactInfo']);
+    Route::post('/contact-us', [ContactController::class, 'contactUs']);
 
     Route::get('/dummy-data', [ProjectController::class, 'dummyData']);
     Route::get('/projects', [ProjectController::class, 'allProjects']);

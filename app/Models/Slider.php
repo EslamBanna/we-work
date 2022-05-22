@@ -5,17 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Contact extends Model
+class Slider extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-    'name',
-    'email',
-    'phone',
-    'identity_number',
-    'type_of_contact',
-    'title',
-    'msg'
+        'title_en',
+        'title_ar',
+        'description_en',
+        'description_ar',
+        'image_en',
+        'image_ar'
     ];
 }
