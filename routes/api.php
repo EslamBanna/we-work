@@ -28,7 +28,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // testttttttttttttttttttttttttttttttttttttttt
 Route::post('create-admin', [AdminController::class, 'createAdmin']);
-
+// ###########################################
 // start admin apis
 Route::group(['prefix' => 'admin'], function () {
     // not authenticated

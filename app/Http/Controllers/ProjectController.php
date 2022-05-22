@@ -170,8 +170,9 @@ class ProjectController extends Controller
     public function allProjects()
     {
         try {
-            // $projects = Project::with('attachs')->groupBy('type')->get();
+            $lastRecordDate = Project::all('updated_at')->max('updated_at')->toArray();
             $projects = [];
+            $projects['last_update'] = $lastRecordDate['formatted'];
             $mobile_projects = Project::with('image:project_id,attach')
                 ->select('id')
                 ->where('type_en', 'app')
@@ -232,7 +233,14 @@ class ProjectController extends Controller
                 ->select('id', 'title_en', 'title_ar', 'description_en', 'description_ar', 'link1 as google_play', 'link2 as app_store')
                 ->where('type_en', 'app')
                 ->get();
-            return $this->returnData('data', $projects);
+
+            $lastRecordDate = Project::where('type_en', 'app')
+                ->select('updated_at')
+                ->orderBy('updated_at', 'desc')
+                ->first();
+            $data['lastRecordDate'] = $lastRecordDate['updated_at'];
+            $data['projects'] = $projects;
+            return $this->returnData('data', $data);
         } catch (\Exception $e) {
             return $this->returnError(201, $e->getMessage());
         }
@@ -288,7 +296,13 @@ class ProjectController extends Controller
                 ->select('id', 'title_en', 'title_ar', 'description_en', 'description_ar')
                 ->where('type_en', 'website')
                 ->get();
-            return $this->returnData('data', $projects);
+            $lastRecordDate = Project::where('type_en', 'website')
+                ->select('updated_at')
+                ->orderBy('updated_at', 'desc')
+                ->first();
+            $data['lastRecordDate'] = $lastRecordDate['updated_at'];
+            $data['projects'] = $projects;
+            return $this->returnData('data', $data);
         } catch (\Exception $e) {
             return $this->returnError(201, $e->getMessage());
         }
@@ -336,7 +350,13 @@ class ProjectController extends Controller
                 ->select('id', 'title_en', 'title_ar')
                 ->where('type_en', $type)
                 ->get();
-            return $this->returnData('data', $projects);
+            $lastRecordDate = Project::where('type_en', $type)
+                ->select('updated_at')
+                ->orderBy('updated_at', 'desc')
+                ->first();
+            $data['lastRecordDate'] = $lastRecordDate['updated_at'];
+            $data['projects'] = $projects;
+            return $this->returnData('data', $data);
         } catch (\Exception $e) {
             return $this->returnError(201, $e->getMessage());
         }
@@ -383,7 +403,13 @@ class ProjectController extends Controller
                 ->select('id', 'title_en', 'title_ar', 'description_en', 'description_ar')
                 ->where('type_en', 'motion graphics')
                 ->get();
-            return $this->returnData('data', $motion_graphics);
+            $lastRecordDate = Project::where('type_en', 'motion graphics')
+                ->select('updated_at')
+                ->orderBy('updated_at', 'desc')
+                ->first();
+            $data['lastRecordDate'] = $lastRecordDate['updated_at'];
+            $data['projects'] = $motion_graphics;
+            return $this->returnData('data', $data);
         } catch (\Exception $e) {
             return $this->returnError(201, $e->getMessage());
         }
@@ -416,5 +442,4 @@ class ProjectController extends Controller
             return $this->returnError(201, $e->getMessage());
         }
     }
-
 }
