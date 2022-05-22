@@ -23,4 +23,25 @@ class JoinUs extends Model
         $actual_link = (isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
         return ($value == null ? '' : $actual_link . 'images/resumes/' . $value);
     }
+    public function getNameAttribute($value)
+    {
+        return $value ?? "";
+    }
+    public function getEmailAttribute($value)
+    {
+        return $value ?? "";
+    }
+    public function getPhoneAttribute($value)
+    {
+        return $value ?? "";
+    }
+    public function getJobTitleAttribute($value)
+    {
+        return $value ?? "";
+    }
+    public function getJobDescriptionAttribute($value)
+    {
+        return $value ?? "";
+    }
+  
 }

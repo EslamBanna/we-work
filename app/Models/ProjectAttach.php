@@ -13,4 +13,9 @@ class ProjectAttach extends Model
         'project_id',
         'attach'
     ];
+
+    // public function getAttribute($value)
+    // {
+    //     return $value ?? "";
+    // }
 }

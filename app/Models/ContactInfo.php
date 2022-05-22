@@ -9,8 +9,20 @@ class ContactInfo extends Model
 {
     use HasFactory;
     protected $fillable = [
-    'key_en',
-    'key_ar',
-    'value'
+        'key_en',
+        'key_ar',
+        'value'
     ];
+    public function getKeyEnAttribute($value)
+    {
+        return $value ?? "";
+    }
+    public function getKeyArAttribute($value)
+    {
+        return $value ?? "";
+    }
+    public function getValueAttribute($value)
+    {
+        return $value ?? "";
+    }
 }

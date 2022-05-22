@@ -79,6 +79,13 @@ return [
             'visibility' => 'public',
             'throw' => false,
         ],
+        'projects_logo' => [
+            'driver' => 'local',
+            'root' => base_path() . '/public/images/projects_logo/',
+            'url' => env('APP_URL').'/public',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
         'sliders' => [
             'driver' => 'local',
             'root' => base_path() . '/public/images/sliders/',

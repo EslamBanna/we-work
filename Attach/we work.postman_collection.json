@@ -289,8 +289,13 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "name",
+									"key": "name_en",
 									"value": "eslam ahmed elbanna",
+									"type": "text"
+								},
+								{
+									"key": "name_ar",
+									"value": "اسلام البنا",
 									"type": "text"
 								},
 								{
@@ -299,13 +304,23 @@
 									"src": "/E:/WhatsApp Image 2021-09-25 at 1.33.08 AM.jpeg"
 								},
 								{
-									"key": "job_title",
+									"key": "job_title_en",
 									"value": "software engineer",
 									"type": "text"
 								},
 								{
-									"key": "job_description",
+									"key": "job_title_ar",
+									"value": "مهندس برمجيات",
+									"type": "text"
+								},
+								{
+									"key": "job_description_en",
 									"value": "laravel dev",
+									"type": "text"
+								},
+								{
+									"key": "job_description_ar",
+									"value": "لارفيل ديفلوبر",
 									"type": "text"
 								}
 							]
@@ -363,8 +378,13 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "name",
+									"key": "name_en",
 									"value": "eslam 888",
+									"type": "text"
+								},
+								{
+									"key": "name_ar",
+									"value": "اسلام",
 									"type": "text"
 								},
 								{
@@ -373,13 +393,23 @@
 									"src": "/E:/WhatsApp Image 2021-09-25 at 1.33.08 AM.jpeg"
 								},
 								{
-									"key": "job_title",
+									"key": "job_title_en",
 									"value": "rrrrrr",
 									"type": "text"
 								},
 								{
-									"key": "job_description",
+									"key": "job_title_ar",
+									"value": "تيست",
+									"type": "text"
+								},
+								{
+									"key": "job_description_en",
 									"value": "kkkkkkkk",
+									"type": "text"
+								},
+								{
+									"key": "job_description_ar",
+									"value": "ممممممممم",
 									"type": "text"
 								}
 							]
@@ -450,6 +480,11 @@
 								{
 									"key": "email",
 									"value": "eslamelbanna02@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0123456789",
 									"type": "text"
 								},
 								{
@@ -1088,6 +1123,51 @@
 								"api",
 								"user",
 								"dummy-sliders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "social media",
+			"item": [
+				{
+					"name": "dummy data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/user/dummy-social",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"dummy-social"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-social-info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/user/get-social-info",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"get-social-info"
 							]
 						}
 					},
