@@ -37,7 +37,7 @@ class TeamController extends Controller
     public function getTeams()
     {
         try {
-            $teams = Team::select('id', 'name', 'photo', 'job_title', 'job_description')->get();
+            $teams = Team::select('name_ar','name_en','photo','job_title_ar','job_title_en','job_description_ar','job_description_en')->get();
             return $this->returnData('data', $teams);
         } catch (\Exception $e) {
             return $this->returnError(201, $e->getMessage());
