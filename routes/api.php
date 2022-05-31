@@ -69,7 +69,7 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('/get-contact-info', [ContactController::class, 'contactInfo']);
     Route::post('/contact-us', [ContactController::class, 'contactUs']);
 
-    Route::get('/dummy-data', [ProjectController::class, 'dummyData']);
+    Route::get('/dummy-data-for-projects', [ProjectController::class, 'dummyDataForProjects']);
     Route::get('/projects', [ProjectController::class, 'allProjects']);
     // mobile apis
     Route::get('/get-mobile-projects', [ProjectController::class, 'getAllMobileProjects']);
@@ -80,12 +80,12 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('/get-website-info/{id}', [ProjectController::class, 'getWebsiteInfo']);
 
     // fetching common project common data
-    Route::get('/get-projects/type/{type}', [ProjectController::class, 'getProjectsByType']);
-    Route::get('/get-project-info/type/{type}/{id}', [ProjectController::class, 'getProjectInfo']);
+    Route::get('/get-projects-with-type/{type}', [ProjectController::class, 'getProjectsWithType']);
+    Route::get('/get-project-info/{id}', [ProjectController::class, 'getProjectInfo']);
 
-    // motion graphics apis
-    Route::get('/get-motion-graphic-projects', [ProjectController::class, 'getMotionGraphicsProjects']);
-    Route::get('/get-motion-graphic-info/{id}', [ProjectController::class, 'getMotionGraphicInfo']);
+      // motion graphics apis
+      Route::get('/get-motion-graphic-projects', [ProjectController::class, 'getMotionGraphicsProjects']);
+      Route::get('/get-motion-graphic-info/{id}', [ProjectController::class, 'getMotionGraphicInfo']);
 
 });
 // end user apis

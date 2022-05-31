@@ -58,11 +58,13 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8000/api/admin/login",
+							"raw": "https://backend-elbanna.we-work.pro/api/admin/login",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"backend-elbanna",
+								"we-work",
+								"pro"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"admin",
@@ -153,7 +155,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer 2|dh65OecSOIBIiwNAZfxRzThiI6IwQvtNEcR2DelP",
+								"value": "Bearer 1|gyvRnqh8xNiSjuNWGqujggtz6s6Ehg2B4Ods9xqw",
 								"type": "text"
 							}
 						],
@@ -168,11 +170,13 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:8000/api/admin/auth/add-client",
+							"raw": "https://backend-elbanna.we-work.pro/api/admin/auth/add-client",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"backend-elbanna",
+								"we-work",
+								"pro"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"admin",
@@ -189,11 +193,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8000/api/user/get-clients",
+							"raw": "https://backend-elbanna.we-work.pro/api/user/get-clients",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"backend-elbanna",
+								"we-work",
+								"pro"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"user",
@@ -225,11 +231,13 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:8000/api/admin/auth/update-client/1",
+							"raw": "https://backend-elbanna.we-work.pro/api/admin/auth/update-client/1",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"backend-elbanna",
+								"we-work",
+								"pro"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"admin",
@@ -253,11 +261,13 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:8000/api/admin/auth/delete-client/1",
+							"raw": "https://backend-elbanna.we-work.pro/api/admin/auth/delete-client/1",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"backend-elbanna",
+								"we-work",
+								"pro"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"admin",
@@ -326,11 +336,13 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:8000/api/admin/auth/add-team-member",
+							"raw": "https://backend-elbanna.we-work.pro/api/admin/auth/add-team-member",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"backend-elbanna",
+								"we-work",
+								"pro"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"admin",
@@ -415,11 +427,13 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:8000/api/admin/auth/update-team-member/2",
+							"raw": "https://backend-elbanna.we-work.pro/api/admin/auth/update-team-member/2",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"backend-elbanna",
+								"we-work",
+								"pro"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"admin",
@@ -443,11 +457,13 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:8000/api/admin/auth/delete-team-member/2",
+							"raw": "https://backend-elbanna.we-work.pro/api/admin/auth/delete-team-member/2",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"backend-elbanna",
+								"we-work",
+								"pro"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"admin",
@@ -505,11 +521,13 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:8000/api/user/join-us",
+							"raw": "https://backend-elbanna.we-work.pro/api/user/join-us",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"backend-elbanna",
+								"we-work",
+								"pro"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"user",
@@ -560,11 +578,13 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:8000/api/admin/auth/delete-join-us/1",
+							"raw": "https://backend-elbanna.we-work.pro/api/admin/auth/delete-join-us/1",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"backend-elbanna",
+								"we-work",
+								"pro"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"admin",
@@ -590,11 +610,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "localhost:8000/api/user/get-mobile-projects",
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-mobile-projects",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"backend-elbanna",
+										"we-work",
+										"pro"
 									],
-									"port": "8000",
 									"path": [
 										"api",
 										"user",
@@ -610,11 +632,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "localhost:8000/api/user/discover-more-apps",
+									"raw": "https://backend-elbanna.we-work.pro/api/user/discover-more-apps",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"backend-elbanna",
+										"we-work",
+										"pro"
 									],
-									"port": "8000",
 									"path": [
 										"api",
 										"user",
@@ -630,11 +654,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "localhost:8000/api/user/get-app-info/10",
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-app-info/10",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"backend-elbanna",
+										"we-work",
+										"pro"
 									],
-									"port": "8000",
 									"path": [
 										"api",
 										"user",
@@ -656,11 +682,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "localhost:8000/api/user/get-website-projects",
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-website-projects",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"backend-elbanna",
+										"we-work",
+										"pro"
 									],
-									"port": "8000",
 									"path": [
 										"api",
 										"user",
@@ -676,11 +704,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "localhost:8000/api/user/get-website-info/6",
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-website-info/6",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"backend-elbanna",
+										"we-work",
+										"pro"
 									],
-									"port": "8000",
 									"path": [
 										"api",
 										"user",
@@ -702,11 +732,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "localhost:8000/api/user/get-projects/type/ui-ux",
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-projects/type/ui-ux",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"backend-elbanna",
+										"we-work",
+										"pro"
 									],
-									"port": "8000",
 									"path": [
 										"api",
 										"user",
@@ -724,11 +756,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "localhost:8000/api/user/get-project-info/type/ui-ux/15",
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-project-info/type/ui-ux/15",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"backend-elbanna",
+										"we-work",
+										"pro"
 									],
-									"port": "8000",
 									"path": [
 										"api",
 										"user",
@@ -752,11 +786,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "localhost:8000/api/user/get-projects/type/interior-design",
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-projects/type/interior-design",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"backend-elbanna",
+										"we-work",
+										"pro"
 									],
-									"port": "8000",
 									"path": [
 										"api",
 										"user",
@@ -774,11 +810,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "localhost:8000/api/user/get-project-info/type/interior-design/15",
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-project-info/type/interior-design/15",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"backend-elbanna",
+										"we-work",
+										"pro"
 									],
-									"port": "8000",
 									"path": [
 										"api",
 										"user",
@@ -802,11 +840,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "localhost:8000/api/user/get-projects/type/exterior-design",
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-projects/type/exterior-design",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"backend-elbanna",
+										"we-work",
+										"pro"
 									],
-									"port": "8000",
 									"path": [
 										"api",
 										"user",
@@ -824,11 +864,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "localhost:8000/api/user/get-project-info/type/exterior-design/21",
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-project-info/type/exterior-design/21",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"backend-elbanna",
+										"we-work",
+										"pro"
 									],
-									"port": "8000",
 									"path": [
 										"api",
 										"user",
@@ -852,11 +894,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "localhost:8000/api/user/get-projects/type/shop-drawing",
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-projects/type/shop-drawing",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"backend-elbanna",
+										"we-work",
+										"pro"
 									],
-									"port": "8000",
 									"path": [
 										"api",
 										"user",
@@ -874,11 +918,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "localhost:8000/api/user/get-project-info/type/shop-drawing/30",
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-project-info/type/shop-drawing/30",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"backend-elbanna",
+										"we-work",
+										"pro"
 									],
-									"port": "8000",
 									"path": [
 										"api",
 										"user",
@@ -902,11 +948,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "localhost:8000/api/user/get-projects/type/photography",
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-projects/type/photography",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"backend-elbanna",
+										"we-work",
+										"pro"
 									],
-									"port": "8000",
 									"path": [
 										"api",
 										"user",
@@ -924,11 +972,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "localhost:8000/api/user/get-project-info/type/photography/32",
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-project-info/type/photography/32",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"backend-elbanna",
+										"we-work",
+										"pro"
 									],
-									"port": "8000",
 									"path": [
 										"api",
 										"user",
@@ -952,11 +1002,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "localhost:8000/api/user/get-motion-graphic-projects",
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-motion-graphic-projects",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"backend-elbanna",
+										"we-work",
+										"pro"
 									],
-									"port": "8000",
 									"path": [
 										"api",
 										"user",
@@ -972,11 +1024,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "localhost:8000/api/user/get-motion-graphic-info/36",
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-motion-graphic-info/36",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"backend-elbanna",
+										"we-work",
+										"pro"
 									],
-									"port": "8000",
 									"path": [
 										"api",
 										"user",
@@ -995,11 +1049,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8000/api/user/projects",
+							"raw": "https://backend-elbanna.we-work.pro/api/user/projects",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"backend-elbanna",
+								"we-work",
+								"pro"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"user",
@@ -1015,11 +1071,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8000/api/user/dummy-data",
+							"raw": "https://backend-elbanna.we-work.pro/api/user/dummy-data",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"backend-elbanna",
+								"we-work",
+								"pro"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"user",
@@ -1040,11 +1098,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8000/api/user/get-contact-info",
+							"raw": "https://backend-elbanna.we-work.pro/api/user/get-contact-info",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"backend-elbanna",
+								"we-work",
+								"pro"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"user",
@@ -1069,11 +1129,13 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8000/api/user/contact-us",
+							"raw": "https://backend-elbanna.we-work.pro/api/user/contact-us",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"backend-elbanna",
+								"we-work",
+								"pro"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"user",
@@ -1094,11 +1156,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8000/api/user/get-sliders",
+							"raw": "https://backend-elbanna.we-work.pro/api/user/get-sliders",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"backend-elbanna",
+								"we-work",
+								"pro"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"user",
@@ -1114,11 +1178,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8000/api/user/dummy-sliders",
+							"raw": "https://backend-elbanna.we-work.pro/api/user/dummy-sliders",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"backend-elbanna",
+								"we-work",
+								"pro"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"user",
@@ -1139,11 +1205,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8000/api/user/dummy-social",
+							"raw": "https://backend-elbanna.we-work.pro/api/user/dummy-social",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"backend-elbanna",
+								"we-work",
+								"pro"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"user",
@@ -1159,11 +1227,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8000/api/user/get-social-info",
+							"raw": "https://backend-elbanna.we-work.pro/api/user/get-social-info",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"backend-elbanna",
+								"we-work",
+								"pro"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"user",
@@ -1206,11 +1276,13 @@
 					]
 				},
 				"url": {
-					"raw": "localhost:8000/api/create-admin",
+					"raw": "https://backend-elbanna.we-work.pro/api/create-admin",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"backend-elbanna",
+						"we-work",
+						"pro"
 					],
-					"port": "8000",
 					"path": [
 						"api",
 						"create-admin"

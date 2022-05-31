@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use App\Models\ProjectAttach;
+use App\Models\ProjectCategory;
+use App\Models\ProjectSubCategory;
 use App\Traits\GeneralTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -11,15 +13,24 @@ use Illuminate\Support\Facades\DB;
 class ProjectController extends Controller
 {
     use GeneralTrait;
-    public function dummyData()
+    public function dummyDataForProjects()
     {
         try {
             DB::beginTransaction();
             // mobile
+            $project_category_id = ProjectCategory::insertGetId([
+                'category_name_en' => 'software engineer',
+                'category_name_ar' => 'هندسة البرمجيات'
+            ]);
+
+            $project_sub_category_id = ProjectSubCategory::insertGetId([
+                'category_id' => $project_category_id,
+                'sub_category_name_en' => 'mobile application',
+                'Sub_category_name_ar' => 'تطبيق موبايل'
+            ]);
             for ($i = 0; $i < 5; $i++) {
                 $project_id = Project::insertGetId([
-                    'type_ar' => 'تطبيق',
-                    'type_en' => 'app',
+                    'sub_category_id' => $project_sub_category_id,
                     'logo' => 'https://product.logo.com',
                     'title_en' => 'Title',
                     'title_ar' => 'عنوان',
@@ -36,11 +47,16 @@ class ProjectController extends Controller
                 }
             }
 
+            $project_sub_category_id = ProjectSubCategory::insertGetId([
+                'category_id' => $project_category_id,
+                'sub_category_name_en' => 'website',
+                'Sub_category_name_ar' => 'موقع الكتروني'
+            ]);
+
             // wesite
             for ($i = 0; $i < 5; $i++) {
                 $project_id = Project::insertGetId([
-                    'type_ar' => 'موقع',
-                    'type_en' => 'website',
+                    'sub_category_id' => $project_sub_category_id,
                     'logo' => 'https://product.logo.com',
                     'title_en' => 'Title',
                     'title_ar' => 'عنوان',
@@ -56,11 +72,16 @@ class ProjectController extends Controller
                 }
             }
 
+            $project_sub_category_id = ProjectSubCategory::insertGetId([
+                'category_id' => $project_category_id,
+                'sub_category_name_en' => 'ui/ux',
+                'Sub_category_name_ar' => 'ui/ux'
+            ]);
+
             // ui/ux
             for ($i = 0; $i < 5; $i++) {
                 $project_id = Project::insertGetId([
-                    'type_ar' => 'ui/ux',
-                    'type_en' => 'ui/ux',
+                    'sub_category_id' => $project_sub_category_id,
                     'title_en' => 'Title',
                     'title_ar' => 'عنوان',
                     'description_en' => 'description',
@@ -74,11 +95,20 @@ class ProjectController extends Controller
                 }
             }
 
+            $project_category_id = ProjectCategory::insertGetId([
+                'category_name_en' => 'decoration',
+                'category_name_ar' => 'التصميم'
+            ]);
+
+            $project_sub_category_id = ProjectSubCategory::insertGetId([
+                'category_id' => $project_category_id,
+                'sub_category_name_en' => 'interior design',
+                'Sub_category_name_ar' => 'تصميم داخلي'
+            ]);
             // تصميم داخلي
             for ($i = 0; $i < 5; $i++) {
                 $project_id = Project::insertGetId([
-                    'type_ar' => 'تصميم داخلي',
-                    'type_en' => 'interior design',
+                    'sub_category_id' => $project_sub_category_id,
                     'title_en' => 'Title',
                     'title_ar' => 'عنوان',
                     'description_en' => 'description',
@@ -92,45 +122,15 @@ class ProjectController extends Controller
                 }
             }
 
+            $project_sub_category_id = ProjectSubCategory::insertGetId([
+                'category_id' => $project_category_id,
+                'sub_category_name_en' => 'exterior design',
+                'Sub_category_name_ar' => 'تصميم خارجي'
+            ]);
             //تصميم خارجي
             for ($i = 0; $i < 5; $i++) {
                 $project_id = Project::insertGetId([
-                    'type_ar' => 'تصميم خارجي',
-                    'type_en' => 'exterior design',
-                    'title_en' => 'Title',
-                    'title_ar' => 'عنوان',
-                    'description_en' => 'description',
-                    'description_ar' => 'وصف',
-                ]);
-                for ($k = 0; $k < 7; $k++) {
-                    ProjectAttach::create([
-                        'project_id' => $project_id,
-                        'attach' => 'https://product.image.com'
-                    ]);
-                }
-            }
-            //تصور سوقي
-            for ($i = 0; $i < 5; $i++) {
-                $project_id = Project::insertGetId([
-                    'type_ar' => 'تصور سوقي',
-                    'type_en' => 'shop drawing',
-                    'title_en' => 'Title',
-                    'title_ar' => 'عنوان',
-                    'description_en' => 'description',
-                    'description_ar' => 'وصف',
-                ]);
-                for ($k = 0; $k < 7; $k++) {
-                    ProjectAttach::create([
-                        'project_id' => $project_id,
-                        'attach' => 'https://product.image.com'
-                    ]);
-                }
-            }
-            // تصوير
-            for ($i = 0; $i < 5; $i++) {
-                $project_id = Project::insertGetId([
-                    'type_ar' => 'تصوير',
-                    'type_en' => 'photography',
+                    'sub_category_id' => $project_sub_category_id,
                     'title_en' => 'Title',
                     'title_ar' => 'عنوان',
                     'description_en' => 'description',
@@ -144,11 +144,65 @@ class ProjectController extends Controller
                 }
             }
 
+            $project_sub_category_id = ProjectSubCategory::insertGetId([
+                'category_id' => $project_category_id,
+                'sub_category_name_en' => 'shop drawing',
+                'Sub_category_name_ar' => 'تصور سوقي'
+            ]);
+            //تصور سوقي
+            for ($i = 0; $i < 5; $i++) {
+                $project_id = Project::insertGetId([
+                    'sub_category_id' => $project_sub_category_id,
+                    'title_en' => 'Title',
+                    'title_ar' => 'عنوان',
+                    'description_en' => 'description',
+                    'description_ar' => 'وصف',
+                ]);
+                for ($k = 0; $k < 7; $k++) {
+                    ProjectAttach::create([
+                        'project_id' => $project_id,
+                        'attach' => 'https://product.image.com'
+                    ]);
+                }
+            }
+
+
+            $project_category_id = ProjectCategory::insertGetId([
+                'category_name_en' => 'marketing',
+                'category_name_ar' => 'تسويق'
+            ]);
+
+            $project_sub_category_id = ProjectSubCategory::insertGetId([
+                'category_id' => $project_category_id,
+                'sub_category_name_en' => 'photography',
+                'Sub_category_name_ar' => 'تصوير'
+            ]);
+            // تصوير
+            for ($i = 0; $i < 5; $i++) {
+                $project_id = Project::insertGetId([
+                    'sub_category_id' => $project_sub_category_id,
+                    'title_en' => 'Title',
+                    'title_ar' => 'عنوان',
+                    'description_en' => 'description',
+                    'description_ar' => 'وصف',
+                ]);
+                for ($k = 0; $k < 7; $k++) {
+                    ProjectAttach::create([
+                        'project_id' => $project_id,
+                        'attach' => 'https://product.image.com'
+                    ]);
+                }
+            }
+
+            $project_sub_category_id = ProjectSubCategory::insertGetId([
+                'category_id' => $project_category_id,
+                'sub_category_name_en' => 'motion graphics',
+                'Sub_category_name_ar' => 'رسوم متحركة'
+            ]);
             // رسوم متحركة
             for ($i = 0; $i < 5; $i++) {
                 $project_id = Project::insertGetId([
-                    'type_ar' => 'رسوم متحركة',
-                    'type_en' => 'motion graphics',
+                    'sub_category_id' => $project_sub_category_id,
                     'title_en' => 'Title',
                     'title_ar' => 'عنوان',
                     'description_en' => 'description',
@@ -173,53 +227,34 @@ class ProjectController extends Controller
             $lastRecordDate = Project::all('updated_at')->max('updated_at')->toArray();
             $projects = [];
             $projects['last_update'] = $lastRecordDate['formatted'];
-            $mobile_projects = Project::with('image:project_id,attach')
-                ->select('id')
-                ->where('type_en', 'app')
-                ->where('selected', 1)
+            $projects_categoryes = ProjectCategory::select('id', 'category_name_en')
                 ->get();
+            foreach ($projects_categoryes as $project_category) {
+                $projects_sub_categoryes = ProjectSubCategory::select('id', 'sub_category_name_en', 'sub_category_name_ar')
+                    ->where('category_id', $project_category['id'])
+                    ->get();
+                if ($project_category['category_name_en'] == 'software engineer') {
+                    foreach ($projects_sub_categoryes as $project_sub_category) {
+                        $software_engineer_projects = Project::with('image:project_id,attach')
+                            ->select('id')
+                            ->where('sub_category_id', $project_sub_category['id'])
+                            ->where('selected', 1)
+                            ->get();
+                        $projects[$project_sub_category['sub_category_name_en']] = $software_engineer_projects;
+                        $projects[$project_sub_category['sub_category_name_en']]['category_ar_name'] = $project_sub_category['sub_category_name_ar'];
+                    }
+                } else {
+                    foreach ($projects_sub_categoryes as $project_sub_category) {
+                        $sub_category_projects = Project::with('image:project_id,attach')
+                            ->select('id', 'title_en', 'title_ar')
+                            ->where('sub_category_id', $project_sub_category['id'])
+                            ->get();
+                        $projects[$project_sub_category['sub_category_name_en']] = $sub_category_projects;
+                        $projects[$project_sub_category['sub_category_name_en']]['category_ar_name'] = $project_sub_category['sub_category_name_ar'];
+                    }
+                }
+            }
 
-            $website_projects = Project::with('image:project_id,attach')
-                ->select('id')
-                ->where('type_en', 'website')
-                ->where('selected', 1)
-                ->get();
-
-            $ui_ux_projects = Project::with('image:project_id,attach')
-                ->select('id', 'title_en', 'title_ar')
-                ->where('type_en', 'ui/ux')
-                ->get();
-            // 
-            $interior_design_projects = Project::with('image:project_id,attach')
-                ->select('id', 'title_en', 'title_ar')
-                ->where('type_en', 'interior design')
-                ->get();
-
-            $exterior_design_projects = Project::with('image:project_id,attach')
-                ->select('id', 'title_en', 'title_ar')
-                ->where('type_en', 'exterior design')
-                ->get();
-            $shop_drawing_projects = Project::with('image:project_id,attach')
-                ->select('id', 'title_en', 'title_ar')
-                ->where('type_en', 'shop drawing')
-                ->get();
-
-            $photography_projects = Project::with('image:project_id,attach')
-                ->select('id', 'title_en', 'title_ar')
-                ->where('type_en', 'photography')
-                ->get();
-            $motion_graphics_projects = Project::with('image:project_id,attach')
-                ->select('id', 'title_en', 'title_ar')
-                ->where('type_en', 'motion graphics')
-                ->get();
-            $projects['mobile_projects'] = $mobile_projects;
-            $projects['website_projects'] = $website_projects;
-            $projects['ui_ux_projects'] = $ui_ux_projects;
-            $projects['interior_design_projects'] = $interior_design_projects;
-            $projects['exterior_design_projects'] = $exterior_design_projects;
-            $projects['shop_drawing_projects'] = $shop_drawing_projects;
-            $projects['photography_projects'] = $photography_projects;
-            $projects['motion_graphics_projects'] = $motion_graphics_projects;
             return $this->returnData('data', $projects);
         } catch (\Exception $e) {
             return $this->returnError(201, $e->getMessage());
@@ -229,12 +264,18 @@ class ProjectController extends Controller
     public function getAllMobileProjects()
     {
         try {
+            $mobile_sub_category_id = ProjectSubCategory::select('id')
+                ->where('sub_category_name_en', 'mobile application')
+                ->first();
+            if (!$mobile_sub_category_id) {
+                return $this->returnError('202', 'this category not founded');
+            }
             $projects = Project::with('image:project_id,attach')
                 ->select('id', 'title_en', 'title_ar', 'description_en', 'description_ar', 'link1 as google_play', 'link2 as app_store')
-                ->where('type_en', 'app')
+                ->where('sub_category_id', $mobile_sub_category_id['id'])
                 ->get();
 
-            $lastRecordDate = Project::where('type_en', 'app')
+            $lastRecordDate = Project::where('sub_category_id', $mobile_sub_category_id['id'])
                 ->select('updated_at')
                 ->orderBy('updated_at', 'desc')
                 ->first();
@@ -249,8 +290,15 @@ class ProjectController extends Controller
     public function discoverMoreApps()
     {
         try {
+            $mobile_sub_category_id = ProjectSubCategory::select('id')
+                ->where('sub_category_name_en', 'mobile application')
+                ->first();
+            if (!$mobile_sub_category_id) {
+                return $this->returnError('202', 'this category not founded');
+            }
+
             $projects = Project::select('id', 'logo', 'title_en', 'title_ar')
-                ->where('type_en', 'app')
+                ->where('sub_category_id', $mobile_sub_category_id['id'])
                 ->latest()
                 ->get();
             return $this->returnData('data', $projects);
@@ -262,12 +310,17 @@ class ProjectController extends Controller
     public function getAppInfo($id)
     {
         try {
+            $mobile_sub_category_id = ProjectSubCategory::select('id')
+                ->where('sub_category_name_en', 'mobile application')
+                ->first();
+            if (!$mobile_sub_category_id) {
+                return $this->returnError('202', 'this category not founded');
+            }
             $app = Project::with('attachs:project_id,attach')
                 ->select(
+                    'sub_category_id',
                     'id',
                     'logo',
-                    'type_en',
-                    'type_ar',
                     'title_en',
                     'title_ar',
                     'description_en',
@@ -280,7 +333,7 @@ class ProjectController extends Controller
             if (!$app) {
                 return $this->returnError(202, 'this app is not exist');
             }
-            if ($app['type_en'] != 'app' || $app['type_ar'] != 'تطبيق') {
+            if ($app['sub_category_id'] != $mobile_sub_category_id['id']) {
                 return $this->returnError(202, 'this is not app !!');
             }
             return $this->returnData('data', $app);
@@ -292,11 +345,17 @@ class ProjectController extends Controller
     public function getAllWebsiteProjects()
     {
         try {
+            $website_sub_category_id = ProjectSubCategory::select('id')
+                ->where('sub_category_name_en', 'website')
+                ->first();
+            if (!$website_sub_category_id) {
+                return $this->returnError('202', 'this category not founded');
+            }
             $projects = Project::with('image:project_id,attach')
                 ->select('id', 'title_en', 'title_ar', 'description_en', 'description_ar')
-                ->where('type_en', 'website')
+                ->where('sub_category_id', $website_sub_category_id['id'])
                 ->get();
-            $lastRecordDate = Project::where('type_en', 'website')
+            $lastRecordDate = Project::where('sub_category_id', $website_sub_category_id['id'])
                 ->select('updated_at')
                 ->orderBy('updated_at', 'desc')
                 ->first();
@@ -311,12 +370,17 @@ class ProjectController extends Controller
     public function getWebsiteInfo($id)
     {
         try {
+            $website_sub_category_id = ProjectSubCategory::select('id')
+                ->where('sub_category_name_en', 'website')
+                ->first();
+            if (!$website_sub_category_id) {
+                return $this->returnError('202', 'this category not founded');
+            }
             $website = Project::with('attachs:project_id,attach')
                 ->select(
+                    'sub_category_id',
                     'id',
                     'logo',
-                    'type_en',
-                    'type_ar',
                     'title_en',
                     'title_ar',
                     'description_en',
@@ -329,7 +393,7 @@ class ProjectController extends Controller
                 return $this->returnError(202, 'this website is not exist');
             }
 
-            if ($website['type_en'] != 'website' || $website['type_ar'] != 'موقع') {
+            if ($website['sub_category_id'] != $website_sub_category_id['id']) {
                 return $this->returnError(202, 'this is not website');
             }
             return $this->returnData('data', $website);
@@ -338,7 +402,7 @@ class ProjectController extends Controller
         }
     }
 
-    public function getProjectsByType($type)
+    public function getProjectsWithType($type)
     {
         try {
             if ($type == 'ui-ux') {
@@ -346,11 +410,17 @@ class ProjectController extends Controller
             } else {
                 $type = str_replace('-', ' ', $type);
             }
+            $sub_category_id = ProjectSubCategory::select('id')
+                ->where('sub_category_name_en', $type)
+                ->first();
+            if (!$sub_category_id) {
+                return $this->returnError('202', 'this category not founded');
+            }
             $projects = Project::with('image:project_id,attach')
                 ->select('id', 'title_en', 'title_ar')
-                ->where('type_en', $type)
+                ->where('sub_category_id', $sub_category_id['id'])
                 ->get();
-            $lastRecordDate = Project::where('type_en', $type)
+            $lastRecordDate = Project::where('sub_category_id', $sub_category_id['id'])
                 ->select('updated_at')
                 ->orderBy('updated_at', 'desc')
                 ->first();
@@ -362,19 +432,13 @@ class ProjectController extends Controller
         }
     }
 
-    public function getProjectInfo($type, $id)
+    public function getProjectInfo($id)
     {
         try {
-            if ($type == 'ui-ux') {
-                $type = 'ui/ux';
-            } else {
-                $type = str_replace('-', ' ', $type);
-            }
             $project = Project::with('attachs:project_id,attach')
                 ->select(
                     'id',
-                    'type_en',
-                    'type_ar',
+                    'sub_category_id',
                     'title_en',
                     'title_ar',
                     'description_en',
@@ -383,11 +447,7 @@ class ProjectController extends Controller
                 )->find($id);
 
             if (!$project) {
-                return $this->returnError(202, 'this ui/ux is not exist');
-            }
-
-            if ($project['type_en'] != $type) {
-                return $this->returnError(202, 'this is not ' . $type);
+                return $this->returnError(202, 'this project is not exist');
             }
             return $this->returnData('data', $project);
         } catch (\Exception $e) {
@@ -399,9 +459,15 @@ class ProjectController extends Controller
     public function getMotionGraphicsProjects()
     {
         try {
+            $sub_category_id = ProjectSubCategory::select('id')
+                ->where('sub_category_name_en', 'motion graphics')
+                ->first();
+            if (!$sub_category_id) {
+                return $this->returnError('202', 'this category not founded');
+            }
             $motion_graphics = Project::with('image:project_id,attach')
                 ->select('id', 'title_en', 'title_ar', 'description_en', 'description_ar')
-                ->where('type_en', 'motion graphics')
+                ->where('sub_category_id', $sub_category_id['id'])
                 ->get();
             $lastRecordDate = Project::where('type_en', 'motion graphics')
                 ->select('updated_at')

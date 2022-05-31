@@ -10,8 +10,7 @@ class Project extends Model
     use HasFactory;
 
     protected $fillable = [
-        'type_en',
-        'type_ar',
+        'sub_category_id',
         'logo',
         'title_en',
         'title_ar',
@@ -33,14 +32,14 @@ class Project extends Model
     }
 
 
-    public function getTypeEnAttribute($value)
-    {
-        return $value ?? "";
-    }
-    public function getTypeArAttribute($value)
-    {
-        return $value ?? "";
-    }
+    // public function getTypeEnAttribute($value)
+    // {
+    //     return $value ?? "";
+    // }
+    // public function getTypeArAttribute($value)
+    // {
+    //     return $value ?? "";
+    // }
     public function getLogoAttribute($value)
     {
         $actual_link = (isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
