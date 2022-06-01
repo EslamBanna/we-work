@@ -469,7 +469,7 @@ class ProjectController extends Controller
                 ->select('id', 'title_en', 'title_ar', 'description_en', 'description_ar')
                 ->where('sub_category_id', $sub_category_id['id'])
                 ->get();
-            $lastRecordDate = Project::where('type_en', 'motion graphics')
+            $lastRecordDate = Project::where('sub_category_id', $sub_category_id['id'])
                 ->select('updated_at')
                 ->orderBy('updated_at', 'desc')
                 ->first();
@@ -484,9 +484,13 @@ class ProjectController extends Controller
     public function getMotionGraphicInfo($id)
     {
         try {
+            $sub_category_id = ProjectSubCategory::select('id')
+            ->where('sub_category_name_en', 'motion graphics')
+            ->first();
             $motion_graphic = Project::with('attachs:project_id,attach')
                 ->select(
                     'id',
+                    'sub_category_id',
                     'type_en',
                     'type_ar',
                     'title_en',
@@ -500,7 +504,7 @@ class ProjectController extends Controller
                 return $this->returnError(202, 'this motion graphic is not exist');
             }
 
-            if ($motion_graphic['type_en'] != 'motion graphics' || $motion_graphic['type_ar'] != 'رسوم متحركة') {
+            if ($motion_graphic['sub_category_id'] != $sub_category_id['id']) {
                 return $this->returnError(202, 'this is not motion graphic');
             }
             return $this->returnData('data', $motion_graphic);
