@@ -491,8 +491,6 @@ class ProjectController extends Controller
                 ->select(
                     'id',
                     'sub_category_id',
-                    'type_en',
-                    'type_ar',
                     'title_en',
                     'title_ar',
                     'description_en',

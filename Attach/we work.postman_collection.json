@@ -654,7 +654,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://backend-elbanna.we-work.pro/api/user/get-app-info/10",
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-app-info/5",
 									"protocol": "https",
 									"host": [
 										"backend-elbanna",
@@ -665,7 +665,7 @@
 										"api",
 										"user",
 										"get-app-info",
-										"10"
+										"5"
 									]
 								}
 							},
@@ -732,7 +732,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://backend-elbanna.we-work.pro/api/user/get-projects/type/ui-ux",
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-projects-with-type/ui-ux",
 									"protocol": "https",
 									"host": [
 										"backend-elbanna",
@@ -742,8 +742,7 @@
 									"path": [
 										"api",
 										"user",
-										"get-projects",
-										"type",
+										"get-projects-with-type",
 										"ui-ux"
 									]
 								}
@@ -786,7 +785,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://backend-elbanna.we-work.pro/api/user/get-projects/type/interior-design",
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-projects-with-type/interior-design",
 									"protocol": "https",
 									"host": [
 										"backend-elbanna",
@@ -796,8 +795,7 @@
 									"path": [
 										"api",
 										"user",
-										"get-projects",
-										"type",
+										"get-projects-with-type",
 										"interior-design"
 									]
 								}
@@ -840,7 +838,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://backend-elbanna.we-work.pro/api/user/get-projects/type/exterior-design",
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-projects-with-type/exterior-design",
 									"protocol": "https",
 									"host": [
 										"backend-elbanna",
@@ -850,8 +848,7 @@
 									"path": [
 										"api",
 										"user",
-										"get-projects",
-										"type",
+										"get-projects-with-type",
 										"exterior-design"
 									]
 								}
@@ -894,7 +891,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://backend-elbanna.we-work.pro/api/user/get-projects/type/shop-drawing",
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-projects-with-type/shop-drawing",
 									"protocol": "https",
 									"host": [
 										"backend-elbanna",
@@ -904,8 +901,7 @@
 									"path": [
 										"api",
 										"user",
-										"get-projects",
-										"type",
+										"get-projects-with-type",
 										"shop-drawing"
 									]
 								}
@@ -948,7 +944,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://backend-elbanna.we-work.pro/api/user/get-projects/type/photography",
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-projects-with-type/photography",
 									"protocol": "https",
 									"host": [
 										"backend-elbanna",
@@ -958,8 +954,7 @@
 									"path": [
 										"api",
 										"user",
-										"get-projects",
-										"type",
+										"get-projects-with-type",
 										"photography"
 									]
 								}
