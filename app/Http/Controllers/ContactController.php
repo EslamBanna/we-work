@@ -28,8 +28,8 @@ class ContactController extends Controller
                 'name' => 'required|string',
                 'email' => 'required|email',
                 'phone' => 'required|string',
-                'identity_number' => 'required|string',
-                'type_of_contact' => 'required|string',
+                // 'identity_number' => 'required|string',
+                // 'type_of_contact' => 'required|string',
                 'title' => 'required|string',
                 'msg' => 'required|string'
             ];

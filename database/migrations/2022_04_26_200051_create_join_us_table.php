@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('job_title')->nullable();
             $table->string('resume')->nullable();
             $table->text('job_description')->nullable();
+            $table->text('address')->nullable();
             $table->timestamps();
         });
     }

@@ -15,7 +15,8 @@ class JoinUs extends Model
         'phone',
         'job_title',
         'resume',
-        'job_description'
+        'job_description',
+        'address'
     ];
 
     public function getResumeAttribute($value)

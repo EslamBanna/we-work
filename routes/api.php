@@ -49,6 +49,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::delete('delete-team-member/{id}', [TeamController::class, 'deleteTeamMember']);
 
         Route::get('/get-all-join-us', [JoinUsController::class, 'getAllJoinUs']);
+        Route::get('/get-join-us/{id}', [JoinUsController::class, 'getJoinUs']);
+        Route::get('/download-resume/{id}', [JoinUsController::class, 'downloadResume']);
         Route::delete('/delete-join-us/{id}', [JoinUsController::class, 'deleteJoinUs']);
     });
     // end authenticated

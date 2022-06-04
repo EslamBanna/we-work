@@ -13,8 +13,8 @@ class Contact extends Model
         'name',
         'email',
         'phone',
-        'identity_number',
-        'type_of_contact',
+        // 'identity_number',
+        // 'type_of_contact',
         'title',
         'msg'
     ];
