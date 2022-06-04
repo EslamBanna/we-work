@@ -12,8 +12,21 @@ class ProjectSubCategory extends Model
     protected $fillable = [
         'category_id',
         'sub_category_name_en',
-        'Sub_category_name_ar'
+        'sub_category_name_ar',
+        'main_photo',
+        'title1_ar',
+        'title1_en',
+        'title2_ar',
+        'title2_en',
+        'description1_ar',
+        'description2_en',
+        'photo1',
+        'photo2',
+        'photo3',
+        'photo4',
+        'photo5',
     ];
+
     protected $hidden = ['created_at', 'updated_at'];
 
     public function projects(){

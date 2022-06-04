@@ -17,7 +17,19 @@ return new class extends Migration
             $table->id();
             $table->integer('category_id');
             $table->string('sub_category_name_en')->nullable();
-            $table->string('Sub_category_name_ar')->nullable();
+            $table->string('sub_category_name_ar')->nullable();
+            $table->string('main_photo')->nullable();
+            $table->string('title1_ar')->nullable();
+            $table->string('title1_en')->nullable();
+            $table->string('title2_ar')->nullable();
+            $table->string('title2_en')->nullable();
+            $table->text('description1_ar')->nullable();
+            $table->text('description2_en')->nullable();
+            $table->string('photo1')->nullable();
+            $table->string('photo2')->nullable();
+            $table->string('photo3')->nullable();
+            $table->string('photo4')->nullable();
+            $table->string('photo5')->nullable();
             $table->timestamps();
         });
     }

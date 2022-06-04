@@ -9,10 +9,32 @@ use App\Models\ProjectSubCategory;
 use App\Traits\GeneralTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class ProjectController extends Controller
 {
     use GeneralTrait;
+
+    public function createMainCategory(Request $request)
+    {
+        try {
+            $validata = Validator::make($request->all(), [
+                'category_name_en' => 'required|string|max:255',
+                'category_name_ar' => 'required|string|max:255'
+            ]);
+            if ($validata->fails()) {
+                return $this->returnError(202, $validata->errors()->first());
+            }
+            ProjectCategory::create([
+                'category_name_en' => $request->category_name_en,
+                'category_name_ar' => $request->category_name_ar
+            ]);
+            return $this->returnSuccessMessage('success');
+        } catch (\Exception $e) {
+            return $this->returnError(201, $e->getMessage());
+        }
+    }
+
     public function dummyDataForProjects()
     {
         try {
@@ -485,8 +507,8 @@ class ProjectController extends Controller
     {
         try {
             $sub_category_id = ProjectSubCategory::select('id')
-            ->where('sub_category_name_en', 'motion graphics')
-            ->first();
+                ->where('sub_category_name_en', 'motion graphics')
+                ->first();
             $motion_graphic = Project::with('attachs:project_id,attach')
                 ->select(
                     'id',

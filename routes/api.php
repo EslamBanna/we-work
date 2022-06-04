@@ -5,6 +5,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\JoinUsController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ProjectSubCategoryController;
 use App\Http\Controllers\RequestProjectController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\SocialMediaController;
@@ -43,7 +44,6 @@ Route::group(['prefix' => 'admin'], function () {
         Route::delete('delete-admin/{id}', [AdminController::class, 'deleteAdmin']);
         Route::post('add-client', [ClientController::class, 'insertClient']);
         // Route::post('update-client/{id}', [ClientController::class, 'updateClient']);
-        Route::get('/get-all-clients', [ClientController::class, 'getClients']);
         Route::delete('delete-client/{id}', [ClientController::class, 'deleteClient']);
 
         Route::post('add-team-member', [TeamController::class, 'insertTeamMember']);
@@ -60,6 +60,9 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/get-contact-us/{id}', [ContactController::class, 'getContactUs']);
         Route::delete('/delete-contact-us/{id}', [ContactController::class, 'deleteContactUs']);
     
+        Route::post('/creare-main-category', [ProjectController::class, 'createMainCategory']);
+        Route::post('/creare-sub-category', [ProjectSubCategoryController::class, 'createSubCategory']);
+
         Route::get('/get-all-request-projects', [RequestProjectController::class, 'getAllRequestProjects']);
         Route::get('/get-request-project/{id}', [RequestProjectController::class, 'getRequestProject']);
         Route::delete('/delete-request-project/{id}', [RequestProjectController::class, 'deleteRequestProject']);
@@ -76,7 +79,7 @@ Route::group(['prefix' => 'user'], function () {
     
     Route::get('/dummy-sliders', [SliderController::class, 'dummySliders']);
     Route::get('/get-sliders', [SliderController::class, 'getSliders']);
-    Route::get('/clients', [ClientController::class, 'clients']);
+    Route::get('/get-all-clients', [ClientController::class, 'getClients']);
     Route::get('/get-teams', [TeamController::class, 'getTeams']);
     Route::post('/join-us', [JoinUsController::class, 'joinUs']);
     Route::get('/get-contact-info', [ContactController::class, 'contactInfo']);

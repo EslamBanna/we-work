@@ -86,6 +86,13 @@ return [
             'visibility' => 'public',
             'throw' => false,
         ],
+        'project_sub_category' => [
+            'driver' => 'local',
+            'root' => base_path() . '/public/images/sub_category/',
+            'url' => env('APP_URL').'/public',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
         'sliders' => [
             'driver' => 'local',
             'root' => base_path() . '/public/images/sliders/',
