@@ -21,6 +21,8 @@ class Project extends Model
         'selected'
     ];
 
+    protected $hidden = ['created_at', 'updated_at', 'selected'];
+
     public function attachs()
     {
         return $this->hasMany(ProjectAttach::class, 'project_id');

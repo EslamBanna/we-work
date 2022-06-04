@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\JoinUsController;
+use App\Http\Controllers\ProjectCategoryController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProjectSubCategoryController;
 use App\Http\Controllers\RequestProjectController;
@@ -60,7 +61,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/get-contact-us/{id}', [ContactController::class, 'getContactUs']);
         Route::delete('/delete-contact-us/{id}', [ContactController::class, 'deleteContactUs']);
     
-        Route::post('/creare-main-category', [ProjectController::class, 'createMainCategory']);
+        Route::post('/creare-main-category', [ProjectCategoryController::class, 'createMainCategory']);
         Route::post('/creare-sub-category', [ProjectSubCategoryController::class, 'createSubCategory']);
 
         Route::get('/get-all-request-projects', [RequestProjectController::class, 'getAllRequestProjects']);
@@ -85,8 +86,13 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('/get-contact-info', [ContactController::class, 'contactInfo']);
     Route::post('/contact-us', [ContactController::class, 'contactUs']);
 
+    // projects
+    Route::get('/get-main-categories', [ProjectCategoryController::class, 'getMainCategories']);
+    Route::get('/get-sub-categories', [ProjectSubCategoryController::class, 'getSubCategories']);
     Route::get('/dummy-data-for-projects', [ProjectController::class, 'dummyDataForProjects']);
-    Route::get('/projects', [ProjectController::class, 'allProjects']);
+    Route::get('/get-projects/{sub_category_id}', [ProjectController::class, 'getProjects']);
+    
+    // Route::get('/projects', [ProjectController::class, 'allProjects']);
     // mobile apis
     Route::get('/get-mobile-projects', [ProjectController::class, 'getAllMobileProjects']);
     Route::get('/discover-more-apps', [ProjectController::class, 'discoverMoreApps']);

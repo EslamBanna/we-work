@@ -78,4 +78,14 @@ class ProjectSubCategoryController extends Controller
             return $this->returnError(201, $e->getMessage());
         }
     }
+
+    public function getSubCategories()
+    {
+        try {
+            $categories = ProjectSubCategory::get();
+            return $this->returnData('data', $categories);
+        } catch (\Exception $e) {
+            return $this->returnError('400', $e->getMessage());
+        }
+    }
 }

@@ -15,26 +15,6 @@ class ProjectController extends Controller
 {
     use GeneralTrait;
 
-    public function createMainCategory(Request $request)
-    {
-        try {
-            $validata = Validator::make($request->all(), [
-                'category_name_en' => 'required|string|max:255',
-                'category_name_ar' => 'required|string|max:255'
-            ]);
-            if ($validata->fails()) {
-                return $this->returnError(202, $validata->errors()->first());
-            }
-            ProjectCategory::create([
-                'category_name_en' => $request->category_name_en,
-                'category_name_ar' => $request->category_name_ar
-            ]);
-            return $this->returnSuccessMessage('success');
-        } catch (\Exception $e) {
-            return $this->returnError(201, $e->getMessage());
-        }
-    }
-
     public function dummyDataForProjects()
     {
         try {
@@ -239,6 +219,20 @@ class ProjectController extends Controller
             return $this->returnSuccessMessage('success');
         } catch (\Exception $e) {
             DB::rollback();
+            return $this->returnError(201, $e->getMessage());
+        }
+    }
+
+    public function getProjects($sub_category_id){
+        try{
+            $check_sub_category = ProjectSubCategory::find($sub_category_id);
+            if(! $check_sub_category){
+                return $this->returnError(201, 'sub category not found');
+            }
+            $data['category'] = $check_sub_category->sub_category_name_en;
+            $data['projects'] = Project::where('sub_category_id', $sub_category_id)->get();
+            return $this->returnData('data',$data);
+        } catch (\Exception $e) {
             return $this->returnError(201, $e->getMessage());
         }
     }

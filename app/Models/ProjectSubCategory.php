@@ -29,7 +29,40 @@ class ProjectSubCategory extends Model
 
     protected $hidden = ['created_at', 'updated_at'];
 
-    public function projects(){
+    public function projects()
+    {
         return $this->hasMany(Project::class, 'sub_category_id');
     }
+
+    public function getMainPhotoAttribute($value)
+    {
+        $actual_link = (isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
+        return ($value == null ? '' : $actual_link . 'images/project_sub_category/' . $value);
+    }
+    public function getPhoto1Attribute($value)
+    {
+        $actual_link = (isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
+        return ($value == null ? '' : $actual_link . 'images/project_sub_category/' . $value);
+    }
+    public function getPhoto2Attribute($value)
+    {
+        $actual_link = (isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
+        return ($value == null ? '' : $actual_link . 'images/project_sub_category/' . $value);
+    }
+    public function getPhoto3Attribute($value)
+    {
+        $actual_link = (isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
+        return ($value == null ? '' : $actual_link . 'images/project_sub_category/' . $value);
+    }
+    public function getPhoto4Attribute($value)
+    {
+        $actual_link = (isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
+        return ($value == null ? '' : $actual_link . 'images/project_sub_category/' . $value);
+    }
+    public function getPhoto5Attribute($value)
+    {
+        $actual_link = (isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
+        return ($value == null ? '' : $actual_link . 'images/project_sub_category/' . $value);
+    }
+    
 }
