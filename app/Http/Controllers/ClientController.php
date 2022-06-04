@@ -63,8 +63,21 @@ class ClientController extends Controller
                 return $this->returnError(202, 'client not founded');
             }
             $client->delete();
+
+            $link_len = strlen((isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/images/clients/');
+            $attach_name = substr($client->photo, $link_len);
+            unlink('images/clients/' . $attach_name);
             return  $this->returnSuccessMessage('success');
         } catch (\Exception $e) {
+            return $this->returnError(201, $e->getMessage());
+        }
+    }
+
+    public function clients(){
+        try{
+            $clients = Client::select('id','photo')->take(6)->get();
+            return $this->returnData('data',$clients);
+        }catch (\Exception $e) {
             return $this->returnError(201, $e->getMessage());
         }
     }

@@ -34,11 +34,54 @@ class ContactController extends Controller
                 'msg' => 'required|string'
             ];
             $validate = validator($request->all(), $rules);
-            if($validate->fails()){
+            if ($validate->fails()) {
                 $code = $this->returnCodeAccordingToInput($validate);
                 return $this->returnValidationError($code, $validate);
             }
             Contact::create($request->all());
+            return $this->returnSuccessMessage('success');
+        } catch (\Exception $e) {
+            return $this->returnError(201, $e->getMessage());
+        }
+    }
+
+    public function getAllContactUs()
+    {
+        try {
+            $contact_us = Contact::select(
+                'id',
+                'name',
+                'email',
+                'phone',
+                'title'
+            )->get();
+            return $this->returnData('data', $contact_us);
+        } catch (\Exception $e) {
+            return $this->returnError(201, $e->getMessage());
+        }
+    }
+
+    public function getContactUs($id)
+    {
+        try {
+            $contact_us = Contact::find($id);
+            if(! $contact_us){
+                return $this->returnError(201, 'Contact Us not found');
+            }
+            return $this->returnData('data', $contact_us);
+        } catch (\Exception $e) {
+            return $this->returnError(201, $e->getMessage());
+        }
+    }
+
+    public function deleteContactUs($id)
+    {
+        try {
+            $contact_us = Contact::find($id);
+            if(! $contact_us){
+                return $this->returnError(201, 'Contact Us not found');
+            }
+            $contact_us->delete();
             return $this->returnSuccessMessage('success');
         } catch (\Exception $e) {
             return $this->returnError(201, $e->getMessage());

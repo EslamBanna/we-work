@@ -12,9 +12,9 @@ class TeamController extends Controller
     public function insertTeamMember(Request $request)
     {
         try {
-            if (!$request->has('name')) {
-                return $this->returnError(202, 'name filed is required');
-            }
+            // if (!$request->has('name')) {
+            //     return $this->returnError(202, 'name filed is required');
+            // }
             $photo = "";
             if ($request->hasFile('photo')) {
                 $photo = $this->saveImage($request->photo, 'teams');
@@ -37,8 +37,21 @@ class TeamController extends Controller
     public function getTeams()
     {
         try {
-            $teams = Team::select('name_ar','name_en','photo','job_title_ar','job_title_en','job_description_ar','job_description_en')->get();
+            $teams = Team::select('name_ar', 'name_en', 'photo', 'job_title_ar', 'job_title_en', 'job_description_ar', 'job_description_en')->get();
             return $this->returnData('data', $teams);
+        } catch (\Exception $e) {
+            return $this->returnError(201, $e->getMessage());
+        }
+    }
+
+    public function getTeamMember($id)
+    {
+        try {
+            $team = Team::find($id);
+            if (!$team) {
+                return $this->returnError(201, 'team not found');
+            }
+            return $this->returnData('data', $team);
         } catch (\Exception $e) {
             return $this->returnError(201, $e->getMessage());
         }

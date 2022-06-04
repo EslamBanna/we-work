@@ -5,6 +5,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\JoinUsController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\RequestProjectController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\SocialMediaController;
 use App\Http\Controllers\TeamController;
@@ -41,10 +42,12 @@ Route::group(['prefix' => 'admin'], function () {
         Route::put('update-admin/{id}', [AdminController::class, 'updateAdmin']);
         Route::delete('delete-admin/{id}', [AdminController::class, 'deleteAdmin']);
         Route::post('add-client', [ClientController::class, 'insertClient']);
-        Route::post('update-client/{id}', [ClientController::class, 'updateClient']);
+        // Route::post('update-client/{id}', [ClientController::class, 'updateClient']);
+        Route::get('/get-all-clients', [ClientController::class, 'getClients']);
         Route::delete('delete-client/{id}', [ClientController::class, 'deleteClient']);
 
         Route::post('add-team-member', [TeamController::class, 'insertTeamMember']);
+        Route::get('/get-team-member/{id}', [TeamController::class, 'getTeamMember']);
         Route::post('update-team-member/{id}', [TeamController::class, 'updateTeamMember']);
         Route::delete('delete-team-member/{id}', [TeamController::class, 'deleteTeamMember']);
 
@@ -52,6 +55,14 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/get-join-us/{id}', [JoinUsController::class, 'getJoinUs']);
         Route::get('/download-resume/{id}', [JoinUsController::class, 'downloadResume']);
         Route::delete('/delete-join-us/{id}', [JoinUsController::class, 'deleteJoinUs']);
+    
+        Route::get('/get-all-contact-us', [ContactController::class, 'getAllContactUs']);
+        Route::get('/get-contact-us/{id}', [ContactController::class, 'getContactUs']);
+        Route::delete('/delete-contact-us/{id}', [ContactController::class, 'deleteContactUs']);
+    
+        Route::get('/get-all-request-projects', [RequestProjectController::class, 'getAllRequestProjects']);
+        Route::get('/get-request-project/{id}', [RequestProjectController::class, 'getRequestProject']);
+        Route::delete('/delete-request-project/{id}', [RequestProjectController::class, 'deleteRequestProject']);
     });
     // end authenticated
 });
@@ -65,7 +76,7 @@ Route::group(['prefix' => 'user'], function () {
     
     Route::get('/dummy-sliders', [SliderController::class, 'dummySliders']);
     Route::get('/get-sliders', [SliderController::class, 'getSliders']);
-    Route::get('/get-clients', [ClientController::class, 'getClients']);
+    Route::get('/clients', [ClientController::class, 'clients']);
     Route::get('/get-teams', [TeamController::class, 'getTeams']);
     Route::post('/join-us', [JoinUsController::class, 'joinUs']);
     Route::get('/get-contact-info', [ContactController::class, 'contactInfo']);
@@ -89,5 +100,7 @@ Route::group(['prefix' => 'user'], function () {
       Route::get('/get-motion-graphic-projects', [ProjectController::class, 'getMotionGraphicsProjects']);
       Route::get('/get-motion-graphic-info/{id}', [ProjectController::class, 'getMotionGraphicInfo']);
 
+    //   request projects
+    Route::post('/insert-request-project', [RequestProjectController::class, 'insertRequestProject']);
 });
 // end user apis
