@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "da210621-7e60-4aed-be6c-414c6bec066a",
-		"name": "we work",
+		"_postman_id": "39cc4055-7269-43e4-a8cf-cfb61f1544ed",
+		"name": "we work old",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "17948569"
 	},
@@ -10,13 +10,45 @@
 			"name": "authentication",
 			"item": [
 				{
+					"name": "create admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|lJmlwmZ0F1waQjvfZwoGoMubRxROAMUfRnjtCyEe",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "localhost:8000/api/admin/auth/create-admin",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"auth",
+								"create-admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "login",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"eslam3@gmail.com\",\r\n    \"password\": \"123456789\"\r\n}",
+							"raw": "{\r\n    \"email\": \"eslam2@gmail.com\",\r\n    \"password\": \"123\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -24,13 +56,11 @@
 							}
 						},
 						"url": {
-							"raw": "https://backend-elbanna.we-work.pro/api/admin/login",
-							"protocol": "https",
+							"raw": "localhost:8000/api/admin/login",
 							"host": [
-								"backend-elbanna",
-								"we-work",
-								"pro"
+								"localhost"
 							],
+							"port": "8000",
 							"path": [
 								"api",
 								"admin",
@@ -104,79 +134,6 @@
 								"auth",
 								"delete-admin",
 								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get all admins",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer LjG988NZn4mKfXOY24P8NIsDKCBBbuioAh8tvzau",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "localhost:8000/api/admin/auth/admins",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"admin",
-								"auth",
-								"admins"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "create admin",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "name",
-									"value": "eslam elbanna",
-									"type": "text"
-								},
-								{
-									"key": "email",
-									"value": "eslam4@gmail.com",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "123456789",
-									"type": "text"
-								},
-								{
-									"key": "photo",
-									"type": "file",
-									"src": "/E:/a.jpg"
-								}
-							]
-						},
-						"url": {
-							"raw": "localhost:8000/api/admin/auth/create-admin",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"admin",
-								"auth",
-								"create-admin"
 							]
 						}
 					},
@@ -695,6 +652,443 @@
 			"name": "projects",
 			"item": [
 				{
+					"name": "apps",
+					"item": [
+						{
+							"name": "get all mobile application projects",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-mobile-projects",
+									"protocol": "https",
+									"host": [
+										"backend-elbanna",
+										"we-work",
+										"pro"
+									],
+									"path": [
+										"api",
+										"user",
+										"get-mobile-projects"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "discover-more-apps",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://backend-elbanna.we-work.pro/api/user/discover-more-apps",
+									"protocol": "https",
+									"host": [
+										"backend-elbanna",
+										"we-work",
+										"pro"
+									],
+									"path": [
+										"api",
+										"user",
+										"discover-more-apps"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-app-info",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-app-info/5",
+									"protocol": "https",
+									"host": [
+										"backend-elbanna",
+										"we-work",
+										"pro"
+									],
+									"path": [
+										"api",
+										"user",
+										"get-app-info",
+										"5"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "websites",
+					"item": [
+						{
+							"name": "get-website-projects",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-website-projects",
+									"protocol": "https",
+									"host": [
+										"backend-elbanna",
+										"we-work",
+										"pro"
+									],
+									"path": [
+										"api",
+										"user",
+										"get-website-projects"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-website-info",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-website-info/6",
+									"protocol": "https",
+									"host": [
+										"backend-elbanna",
+										"we-work",
+										"pro"
+									],
+									"path": [
+										"api",
+										"user",
+										"get-website-info",
+										"6"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "ui/ux",
+					"item": [
+						{
+							"name": "get all ui-ux projects",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-projects-with-type/ui-ux",
+									"protocol": "https",
+									"host": [
+										"backend-elbanna",
+										"we-work",
+										"pro"
+									],
+									"path": [
+										"api",
+										"user",
+										"get-projects-with-type",
+										"ui-ux"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-ui-ux-info",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-project-info/type/ui-ux/15",
+									"protocol": "https",
+									"host": [
+										"backend-elbanna",
+										"we-work",
+										"pro"
+									],
+									"path": [
+										"api",
+										"user",
+										"get-project-info",
+										"type",
+										"ui-ux",
+										"15"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "interior design",
+					"item": [
+						{
+							"name": "get all interior design projects",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-projects-with-type/interior-design",
+									"protocol": "https",
+									"host": [
+										"backend-elbanna",
+										"we-work",
+										"pro"
+									],
+									"path": [
+										"api",
+										"user",
+										"get-projects-with-type",
+										"interior-design"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-interior design info",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-project-info/type/interior-design/15",
+									"protocol": "https",
+									"host": [
+										"backend-elbanna",
+										"we-work",
+										"pro"
+									],
+									"path": [
+										"api",
+										"user",
+										"get-project-info",
+										"type",
+										"interior-design",
+										"15"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "exterior design",
+					"item": [
+						{
+							"name": "get all exterior design projects",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-projects-with-type/exterior-design",
+									"protocol": "https",
+									"host": [
+										"backend-elbanna",
+										"we-work",
+										"pro"
+									],
+									"path": [
+										"api",
+										"user",
+										"get-projects-with-type",
+										"exterior-design"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-exterior design info",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-project-info/type/exterior-design/21",
+									"protocol": "https",
+									"host": [
+										"backend-elbanna",
+										"we-work",
+										"pro"
+									],
+									"path": [
+										"api",
+										"user",
+										"get-project-info",
+										"type",
+										"exterior-design",
+										"21"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "shop drawing",
+					"item": [
+						{
+							"name": "get all shop drawing projects",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-projects-with-type/shop-drawing",
+									"protocol": "https",
+									"host": [
+										"backend-elbanna",
+										"we-work",
+										"pro"
+									],
+									"path": [
+										"api",
+										"user",
+										"get-projects-with-type",
+										"shop-drawing"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-shop drawing info",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-project-info/type/shop-drawing/30",
+									"protocol": "https",
+									"host": [
+										"backend-elbanna",
+										"we-work",
+										"pro"
+									],
+									"path": [
+										"api",
+										"user",
+										"get-project-info",
+										"type",
+										"shop-drawing",
+										"30"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "photography",
+					"item": [
+						{
+							"name": "get all photography projects",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-projects-with-type/photography",
+									"protocol": "https",
+									"host": [
+										"backend-elbanna",
+										"we-work",
+										"pro"
+									],
+									"path": [
+										"api",
+										"user",
+										"get-projects-with-type",
+										"photography"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get photography info",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-project-info/type/photography/32",
+									"protocol": "https",
+									"host": [
+										"backend-elbanna",
+										"we-work",
+										"pro"
+									],
+									"path": [
+										"api",
+										"user",
+										"get-project-info",
+										"type",
+										"photography",
+										"32"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "motion graphics",
+					"item": [
+						{
+							"name": "get motion graphic projects",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-motion-graphic-projects",
+									"protocol": "https",
+									"host": [
+										"backend-elbanna",
+										"we-work",
+										"pro"
+									],
+									"path": [
+										"api",
+										"user",
+										"get-motion-graphic-projects"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get motion-graphic info",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://backend-elbanna.we-work.pro/api/user/get-motion-graphic-info/36",
+									"protocol": "https",
+									"host": [
+										"backend-elbanna",
+										"we-work",
+										"pro"
+									],
+									"path": [
+										"api",
+										"user",
+										"get-motion-graphic-info",
+										"36"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "dashboard",
 					"item": [
 						{
@@ -861,6 +1255,48 @@
 					]
 				},
 				{
+					"name": "get all projects",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://backend-elbanna.we-work.pro/api/user/projects",
+							"protocol": "https",
+							"host": [
+								"backend-elbanna",
+								"we-work",
+								"pro"
+							],
+							"path": [
+								"api",
+								"user",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dummy data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/user/dummy-data-for-projects",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"dummy-data-for-projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "get project main categories",
 					"request": {
 						"method": "GET",
@@ -881,7 +1317,7 @@
 					"response": []
 				},
 				{
-					"name": "get all sub categories",
+					"name": "get all project sub categories",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -895,27 +1331,6 @@
 								"api",
 								"user",
 								"get-all-sub-categories"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get sub categories",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:8000/api/user/get-sub-categories/2",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"user",
-								"get-sub-categories",
-								"2"
 							]
 						}
 					},
@@ -937,27 +1352,6 @@
 								"user",
 								"get-projects",
 								"10"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get project",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:8000/api/user/get-project/20",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"user",
-								"get-project",
-								"20"
 							]
 						}
 					},
@@ -1344,18 +1738,18 @@
 						},
 						{
 							"key": "email",
-							"value": "eslam4@gmail.com",
+							"value": "eslam2@gmail.com",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "123456789",
+							"value": "123",
 							"type": "text"
 						},
 						{
 							"key": "photo",
 							"type": "file",
-							"src": "/E:/a.jpg"
+							"src": "/E:/WhatsApp Image 2021-09-25 at 1.33.08 AM.jpeg"
 						}
 					]
 				},

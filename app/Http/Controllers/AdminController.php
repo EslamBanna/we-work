@@ -60,10 +60,15 @@ class AdminController extends Controller
                 $code = $this->returnCodeAccordingToInput($validate);
                 return $this->returnValidationError($code, $validate);
             }
+            $photo = "";
+            if ($request->hasFile('photo')) {
+                $photo = $this->saveImage($request->photo, 'admins');
+            }
             Admin::create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
+                'photo' => $photo
             ]);
             return $this->returnSuccessMessage('success');
         } catch (\Exception $e) {
@@ -84,9 +89,17 @@ class AdminController extends Controller
             if ($check_admins > 0) {
                 return $this->returnError(203, 'this email is taken before');
             }
+            $photo = "";
+            if ($request->hasFile('photo')) {
+                $photo = $this->saveImage($request->photo, 'admins');
+            } else {
+                $link_len = strlen((isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/images/admins/');
+                $photo = substr($admin->photo, $link_len);
+            }
             $admin->update([
                 'name' => $request->name ?? $admin->name,
                 'email' => $request->email ?? $admin->email,
+                'photo' => $photo
             ]);
             return $this->returnSuccessMessage('updated successfully');
         } catch (\Exception $e) {
