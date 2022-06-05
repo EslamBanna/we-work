@@ -40,6 +40,15 @@ class AdminController extends Controller
     }
 
 
+    public function getAdmins()
+    {
+        try {
+            $admins = Admin::all();
+            return $this->returnData('data', $admins);
+        } catch (\Exception $e) {
+            return $this->returnError(201, $e->getMessage());
+        }
+    }
     public function createAdmin(Request $request)
     {
         try {

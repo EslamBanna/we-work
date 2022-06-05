@@ -40,6 +40,7 @@ Route::group(['prefix' => 'admin'], function () {
 
     //start authenticated
     Route::group(['prefix' => 'auth', 'middleware' => 'auth:sanctum'], function () {
+        Route::get('/admins', [AdminController::class, 'getAdmins']);
         Route::post('create-admin', [AdminController::class, 'createAdmin']);
         Route::put('update-admin/{id}', [AdminController::class, 'updateAdmin']);
         Route::delete('delete-admin/{id}', [AdminController::class, 'deleteAdmin']);
@@ -88,9 +89,11 @@ Route::group(['prefix' => 'user'], function () {
 
     // projects
     Route::get('/get-main-categories', [ProjectCategoryController::class, 'getMainCategories']);
-    Route::get('/get-sub-categories', [ProjectSubCategoryController::class, 'getSubCategories']);
+    Route::get('/get-all-sub-categories', [ProjectSubCategoryController::class, 'getAllSubCategories']);
+    Route::get('/get-sub-categories/{main_category_id}', [ProjectSubCategoryController::class, 'getSubCategories']);
     Route::get('/dummy-data-for-projects', [ProjectController::class, 'dummyDataForProjects']);
     Route::get('/get-projects/{sub_category_id}', [ProjectController::class, 'getProjects']);
+    Route::get('/get-project/{project_id}', [ProjectController::class, 'getProject']);
     
     // Route::get('/projects', [ProjectController::class, 'allProjects']);
     // mobile apis

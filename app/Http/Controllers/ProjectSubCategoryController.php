@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProjectCategory;
 use App\Models\ProjectSubCategory;
 use App\Traits\GeneralTrait;
 use Illuminate\Http\Request;
@@ -79,13 +80,26 @@ class ProjectSubCategoryController extends Controller
         }
     }
 
-    public function getSubCategories()
+    public function getAllSubCategories()
     {
         try {
             $categories = ProjectSubCategory::get();
             return $this->returnData('data', $categories);
         } catch (\Exception $e) {
-            return $this->returnError('400', $e->getMessage());
+            return $this->returnError('201', $e->getMessage());
+        }
+    }
+
+    public function getSubCategories($main_category_id){
+        try{
+            $check_main_category = ProjectCategory::find($main_category_id);
+            if(! $check_main_category){
+                return $this->returnError('202', 'Main category not found');
+            }
+            $categories = ProjectSubCategory::where('category_id', $main_category_id)->get();
+            return $this->returnData('data', $categories);
+        } catch (\Exception $e) {
+            return $this->returnError('201', $e->getMessage());
         }
     }
 }

@@ -14,6 +14,7 @@ class ProjectAttach extends Model
         'attach'
     ];
 
+    protected $hidden = ['created_at', 'updated_at'];
     public function getAttachAttribute($value)
     {
         $actual_link = (isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';

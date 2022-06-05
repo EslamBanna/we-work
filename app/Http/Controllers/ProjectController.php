@@ -223,20 +223,53 @@ class ProjectController extends Controller
         }
     }
 
-    public function getProjects($sub_category_id){
-        try{
+    public function getProjects($sub_category_id)
+    {
+        try {
             $check_sub_category = ProjectSubCategory::find($sub_category_id);
-            if(! $check_sub_category){
+            if (!$check_sub_category) {
                 return $this->returnError(201, 'sub category not found');
             }
             $data['category'] = $check_sub_category->sub_category_name_en;
             $data['projects'] = Project::where('sub_category_id', $sub_category_id)->get();
-            return $this->returnData('data',$data);
+            return $this->returnData('data', $data);
         } catch (\Exception $e) {
             return $this->returnError(201, $e->getMessage());
         }
     }
 
+    public function getProject($project_id)
+    {
+        try {
+            $check_project = Project::with('attachs')->find($project_id);
+            if (!$check_project) {
+                return $this->returnError(201, 'project not found');
+            }
+            $catgegory = ProjectSubCategory::find($check_project->sub_category_id);
+            $data['project_sub_category'] = $catgegory['sub_category_name_en'];
+            $data['project'] = $check_project;
+            if ($catgegory->sub_category_name_en == 'mobile application') {
+                $data['project']['google_play'] = $data['project']['link1'];
+                $data['project']['app_store'] = $data['project']['link2'];
+                unset($data['project']['link1']);
+                unset($data['project']['link2']);
+            }else if($catgegory->sub_category_name_en == 'website'){
+                $data['project']['web_link'] = $data['project']['link1'];
+                unset($data['project']['link1']);
+                unset($data['project']['link2']);
+                unset($data['project']['logo']);
+            }else{
+                unset($data['project']['logo']);
+                unset($data['project']['link1']);
+                unset($data['project']['link2']);
+            }
+            return $this->returnData('data', $data);
+        } catch (\Exception $e) {
+            return $this->returnError(201, $e->getMessage());
+        }
+    }
+
+    // old
     public function allProjects()
     {
         try {
@@ -276,7 +309,7 @@ class ProjectController extends Controller
             return $this->returnError(201, $e->getMessage());
         }
     }
-
+    // 
     public function getAllMobileProjects()
     {
         try {

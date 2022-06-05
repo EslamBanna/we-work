@@ -17,8 +17,7 @@ class Admin extends Authenticatable
         'password',
     ];
 
-    protected $hidden = ['password'];
-    
+    protected $hidden = ['password', 'created_at', 'updated_at'];
     public function getNameAttribute($value)
     {
         return $value ?? "";
