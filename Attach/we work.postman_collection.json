@@ -24,13 +24,11 @@
 							}
 						},
 						"url": {
-							"raw": "https://backend-elbanna.we-work.pro/api/admin/login",
-							"protocol": "https",
+							"raw": "localhost:8000/api/admin/login",
 							"host": [
-								"backend-elbanna",
-								"we-work",
-								"pro"
+								"localhost"
 							],
+							"port": "8000",
 							"path": [
 								"api",
 								"admin",
@@ -197,7 +195,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer 1|gyvRnqh8xNiSjuNWGqujggtz6s6Ehg2B4Ods9xqw",
+										"value": "Bearer 63UyyAn67JjOVfY3kiMNSumkpFXCwYkx4EhX8zDp",
 										"type": "text"
 									}
 								],
@@ -207,18 +205,16 @@
 										{
 											"key": "photo",
 											"type": "file",
-											"src": "/E:/Render Me 1-1.m4v"
+											"src": "/E:/a.jpg"
 										}
 									]
 								},
 								"url": {
-									"raw": "https://backend-elbanna.we-work.pro/api/admin/auth/add-client",
-									"protocol": "https",
+									"raw": "localhost:8000/api/admin/auth/add-client",
 									"host": [
-										"backend-elbanna",
-										"we-work",
-										"pro"
+										"localhost"
 									],
+									"port": "8000",
 									"path": [
 										"api",
 										"admin",
@@ -278,6 +274,26 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "get 6 clients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/user/get-6-clients",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"get-6-clients"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -294,7 +310,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer 1|jqRKlzSfwXtcHa9d4K2W7fH3P8fAbw8wEsM8wkpZ",
+										"value": "Bearer 1|63UyyAn67JjOVfY3kiMNSumkpFXCwYkx4EhX8zDp",
 										"type": "text"
 									}
 								],
@@ -927,16 +943,18 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8000/api/user/get-projects/10",
+							"raw": "https://backend-elbanna.we-work.pro/api/user/get-projects/1",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"backend-elbanna",
+								"we-work",
+								"pro"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"user",
 								"get-projects",
-								"10"
+								"1"
 							]
 						}
 					},
@@ -1140,17 +1158,78 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://backend-elbanna.we-work.pro/api/user/dummy-sliders",
-							"protocol": "https",
+							"raw": "localhost:8000/api/user/dummy-sliders",
 							"host": [
-								"backend-elbanna",
-								"we-work",
-								"pro"
+								"localhost"
 							],
+							"port": "8000",
 							"path": [
 								"api",
 								"user",
 								"dummy-sliders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update slider",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 63UyyAn67JjOVfY3kiMNSumkpFXCwYkx4EhX8zDp",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title_en",
+									"value": "updated slider",
+									"type": "text"
+								},
+								{
+									"key": "title_ar",
+									"value": "تحديث",
+									"type": "text"
+								},
+								{
+									"key": "description_en",
+									"value": "updated description",
+									"type": "text"
+								},
+								{
+									"key": "description_ar",
+									"value": "وصف محدث",
+									"type": "text"
+								},
+								{
+									"key": "image_en",
+									"type": "file",
+									"src": "/E:/a.jpg"
+								},
+								{
+									"key": "image_ar",
+									"type": "file",
+									"src": "/E:/a.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/admin/auth/update-slider/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"auth",
+								"update-slider",
+								"1"
 							]
 						}
 					},
@@ -1225,11 +1304,13 @@
 									}
 								],
 								"url": {
-									"raw": "localhost:8000/api/admin/auth/get-all-request-projects",
+									"raw": "https://backend-elbanna.we-work.pro/api/admin/auth/get-all-request-projects",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"backend-elbanna",
+										"we-work",
+										"pro"
 									],
-									"port": "8000",
 									"path": [
 										"api",
 										"admin",
@@ -1313,11 +1394,13 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8000/api/user/insert-request-project",
+							"raw": "https://backend-elbanna.we-work.pro/api/user/insert-request-project",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"backend-elbanna",
+								"we-work",
+								"pro"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"user",

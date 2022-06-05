@@ -35,6 +35,15 @@ class ClientController extends Controller
         }
     }
 
+    public function get6Clients()
+    {
+        try {
+            $clients = Client::select('id', 'photo')->take(6)->get();
+            return $this->returnData('data', $clients);
+        } catch (\Exception $e) {
+            return $this->returnError(201, $e->getMessage());
+        }
+    }
     public function updateClient($clientId, Request $request)
     {
         try {

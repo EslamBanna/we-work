@@ -53,15 +53,17 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('update-team-member/{id}', [TeamController::class, 'updateTeamMember']);
         Route::delete('delete-team-member/{id}', [TeamController::class, 'deleteTeamMember']);
 
+        Route::post('/update-slider/{slider_id}', [SliderController::class, 'updateSlider']);
+
         Route::get('/get-all-join-us', [JoinUsController::class, 'getAllJoinUs']);
         Route::get('/get-join-us/{id}', [JoinUsController::class, 'getJoinUs']);
         Route::get('/download-resume/{id}', [JoinUsController::class, 'downloadResume']);
         Route::delete('/delete-join-us/{id}', [JoinUsController::class, 'deleteJoinUs']);
-    
+
         Route::get('/get-all-contact-us', [ContactController::class, 'getAllContactUs']);
         Route::get('/get-contact-us/{id}', [ContactController::class, 'getContactUs']);
         Route::delete('/delete-contact-us/{id}', [ContactController::class, 'deleteContactUs']);
-    
+
         Route::post('/creare-main-category', [ProjectCategoryController::class, 'createMainCategory']);
         Route::post('/creare-sub-category', [ProjectSubCategoryController::class, 'createSubCategory']);
 
@@ -78,10 +80,11 @@ Route::group(['prefix' => 'user'], function () {
 
     Route::get('/dummy-social', [SocialMediaController::class, 'dummySocial']);
     Route::get('/get-social-info', [SocialMediaController::class, 'getSocialInfo']);
-    
+
     Route::get('/dummy-sliders', [SliderController::class, 'dummySliders']);
     Route::get('/get-sliders', [SliderController::class, 'getSliders']);
     Route::get('/get-all-clients', [ClientController::class, 'getClients']);
+    Route::get('/get-6-clients', [ClientController::class, 'get6Clients']);
     Route::get('/get-teams', [TeamController::class, 'getTeams']);
     Route::post('/join-us', [JoinUsController::class, 'joinUs']);
     Route::get('/get-contact-info', [ContactController::class, 'contactInfo']);
@@ -94,7 +97,7 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('/dummy-data-for-projects', [ProjectController::class, 'dummyDataForProjects']);
     Route::get('/get-projects/{sub_category_id}', [ProjectController::class, 'getProjects']);
     Route::get('/get-project/{project_id}', [ProjectController::class, 'getProject']);
-    
+
     // Route::get('/projects', [ProjectController::class, 'allProjects']);
     // mobile apis
     Route::get('/get-mobile-projects', [ProjectController::class, 'getAllMobileProjects']);
@@ -108,9 +111,9 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('/get-projects-with-type/{type}', [ProjectController::class, 'getProjectsWithType']);
     Route::get('/get-project-info/{id}', [ProjectController::class, 'getProjectInfo']);
 
-      // motion graphics apis
-      Route::get('/get-motion-graphic-projects', [ProjectController::class, 'getMotionGraphicsProjects']);
-      Route::get('/get-motion-graphic-info/{id}', [ProjectController::class, 'getMotionGraphicInfo']);
+    // motion graphics apis
+    Route::get('/get-motion-graphic-projects', [ProjectController::class, 'getMotionGraphicsProjects']);
+    Route::get('/get-motion-graphic-info/{id}', [ProjectController::class, 'getMotionGraphicInfo']);
 
     //   request projects
     Route::post('/insert-request-project', [RequestProjectController::class, 'insertRequestProject']);
