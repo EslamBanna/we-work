@@ -67,8 +67,10 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/creare-main-category', [ProjectCategoryController::class, 'createMainCategory']);
         Route::put('/update-main-category/{id}', [ProjectCategoryController::class, 'updateMainCategory']);
         Route::delete('/delete-main-category/{id}', [ProjectCategoryController::class, 'deleteMainCategory']);
+        
         Route::post('/creare-sub-category', [ProjectSubCategoryController::class, 'createSubCategory']);
-
+        Route::post('/update-sub-category/{id}', [ProjectSubCategoryController::class, 'updateSubCategory']);
+        Route::delete('/delete-sub-category/{id}', [ProjectSubCategoryController::class, 'deleteSubCategory']);
         Route::get('/get-all-request-projects', [RequestProjectController::class, 'getAllRequestProjects']);
         Route::get('/get-request-project/{id}', [RequestProjectController::class, 'getRequestProject']);
         Route::delete('/delete-request-project/{id}', [RequestProjectController::class, 'deleteRequestProject']);
@@ -81,7 +83,7 @@ Route::group(['prefix' => 'admin'], function () {
 Route::group(['prefix' => 'user'], function () {
 
     Route::get('/dummy-social', [SocialMediaController::class, 'dummySocial']);
-    Route::get('/get-social-info', [SocialMediaController::class, 'getSocialInfo']);
+    // Route::get('/get-social-info', [SocialMediaController::class, 'getSocialInfo']);
 
     Route::get('/dummy-sliders', [SliderController::class, 'dummySliders']);
     Route::get('/get-sliders', [SliderController::class, 'getSliders']);
@@ -99,6 +101,7 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('/get-main-category-by-id/{id}', [ProjectCategoryController::class, 'getMainCategoryById']);
     Route::get('/get-all-sub-categories', [ProjectSubCategoryController::class, 'getAllSubCategories']);
     Route::get('/get-sub-categories/{main_category_id}', [ProjectSubCategoryController::class, 'getSubCategories']);
+    Route::get('/get-sub-category-by-id/{id}', [ProjectSubCategoryController::class, 'getSubCategoryById']);
     Route::get('/get-projects/{sub_category_id}', [ProjectController::class, 'getProjects']);
     Route::get('/get-project/{project_id}', [ProjectController::class, 'getProject']);
 
