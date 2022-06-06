@@ -39,4 +39,55 @@ class ProjectCategoryController extends Controller
             return $this->returnError('400', $e->getMessage());
         }
     }
+
+    public function getMainCategoryById($id)
+    {
+        try {
+            $category = ProjectCategory::find($id);
+            if (!$category) {
+                return $this->returnError(202, 'Category not found');
+            }
+            return $this->returnData('data', $category);
+        } catch (\Exception $e) {
+            return $this->returnError('400', $e->getMessage());
+        }
+    }
+
+    public function updateMainCategory($id, Request $request)
+    {
+        try {
+            $validate = Validator::make($request->all(), [
+                'category_name_en' => 'required|string|max:255',
+                'category_name_ar' => 'required|string|max:255'
+            ]);
+            if($validate->fails()){
+                return $this->returnError(202, $validate->errors()->first());
+            }
+            $category = ProjectCategory::find($id);
+            if (!$category) {
+                return $this->returnError(202, 'Category not found');
+            }
+            $category->update([
+                'category_name_en' => $request->category_name_en ?? $category->category_name_en,
+                'category_name_ar' => $request->category_name_ar ?? $category->category_name_ar
+            ]);
+            return $this->returnSuccessMessage('success');
+        } catch (\Exception $e) {
+            return $this->returnError('400', $e->getMessage());
+        }
+    }
+
+    public function deleteMainCategory($id)
+    {
+        try {
+            $category = ProjectCategory::find($id);
+            if (!$category) {
+                return $this->returnError(202, 'Category not found');
+            }
+            $category->delete();
+            return $this->returnSuccessMessage('success');
+        } catch (\Exception $e) {
+            return $this->returnError('400', $e->getMessage());
+        }
+    }
 }

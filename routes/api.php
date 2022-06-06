@@ -65,6 +65,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::delete('/delete-contact-us/{id}', [ContactController::class, 'deleteContactUs']);
 
         Route::post('/creare-main-category', [ProjectCategoryController::class, 'createMainCategory']);
+        Route::put('/update-main-category/{id}', [ProjectCategoryController::class, 'updateMainCategory']);
+        Route::delete('/delete-main-category/{id}', [ProjectCategoryController::class, 'deleteMainCategory']);
         Route::post('/creare-sub-category', [ProjectSubCategoryController::class, 'createSubCategory']);
 
         Route::get('/get-all-request-projects', [RequestProjectController::class, 'getAllRequestProjects']);
@@ -91,29 +93,31 @@ Route::group(['prefix' => 'user'], function () {
     Route::post('/contact-us', [ContactController::class, 'contactUs']);
 
     // projects
+    Route::get('/dummy-data-for-projects', [ProjectController::class, 'dummyDataForProjects']);
+
     Route::get('/get-main-categories', [ProjectCategoryController::class, 'getMainCategories']);
+    Route::get('/get-main-category-by-id/{id}', [ProjectCategoryController::class, 'getMainCategoryById']);
     Route::get('/get-all-sub-categories', [ProjectSubCategoryController::class, 'getAllSubCategories']);
     Route::get('/get-sub-categories/{main_category_id}', [ProjectSubCategoryController::class, 'getSubCategories']);
-    Route::get('/dummy-data-for-projects', [ProjectController::class, 'dummyDataForProjects']);
     Route::get('/get-projects/{sub_category_id}', [ProjectController::class, 'getProjects']);
     Route::get('/get-project/{project_id}', [ProjectController::class, 'getProject']);
 
     // Route::get('/projects', [ProjectController::class, 'allProjects']);
     // mobile apis
-    Route::get('/get-mobile-projects', [ProjectController::class, 'getAllMobileProjects']);
-    Route::get('/discover-more-apps', [ProjectController::class, 'discoverMoreApps']);
-    Route::get('/get-app-info/{id}', [ProjectController::class, 'getAppInfo']);
+    // Route::get('/get-mobile-projects', [ProjectController::class, 'getAllMobileProjects']);
+    // Route::get('/discover-more-apps', [ProjectController::class, 'discoverMoreApps']);
+    // Route::get('/get-app-info/{id}', [ProjectController::class, 'getAppInfo']);
     // website apis
-    Route::get('/get-website-projects', [ProjectController::class, 'getAllWebsiteProjects']);
-    Route::get('/get-website-info/{id}', [ProjectController::class, 'getWebsiteInfo']);
+    // Route::get('/get-website-projects', [ProjectController::class, 'getAllWebsiteProjects']);
+    // Route::get('/get-website-info/{id}', [ProjectController::class, 'getWebsiteInfo']);
 
     // fetching common project common data
-    Route::get('/get-projects-with-type/{type}', [ProjectController::class, 'getProjectsWithType']);
-    Route::get('/get-project-info/{id}', [ProjectController::class, 'getProjectInfo']);
+    // Route::get('/get-projects-with-type/{type}', [ProjectController::class, 'getProjectsWithType']);
+    // Route::get('/get-project-info/{id}', [ProjectController::class, 'getProjectInfo']);
 
     // motion graphics apis
-    Route::get('/get-motion-graphic-projects', [ProjectController::class, 'getMotionGraphicsProjects']);
-    Route::get('/get-motion-graphic-info/{id}', [ProjectController::class, 'getMotionGraphicInfo']);
+    // Route::get('/get-motion-graphic-projects', [ProjectController::class, 'getMotionGraphicsProjects']);
+    // Route::get('/get-motion-graphic-info/{id}', [ProjectController::class, 'getMotionGraphicInfo']);
 
     //   request projects
     Route::post('/insert-request-project', [RequestProjectController::class, 'insertRequestProject']);

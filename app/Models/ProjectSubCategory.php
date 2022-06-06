@@ -34,6 +34,17 @@ class ProjectSubCategory extends Model
         return $this->hasMany(Project::class, 'sub_category_id');
     }
 
+    
+    public static function boot()
+    {
+        parent::boot();
+        self::deleting(function ($sub_category) {
+            $sub_category->projects()->each(function ($project) {
+                $project->delete();
+            });
+        });
+    }
+
     public function getMainPhotoAttribute($value)
     {
         $actual_link = (isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';

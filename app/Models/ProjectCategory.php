@@ -19,4 +19,14 @@ class ProjectCategory extends Model
     public function subCategoryes(){
         return $this->hasMany(ProjectSubCategory::class, 'category_id');
     }
+
+    public static function boot()
+    {
+        parent::boot();
+        self::deleting(function ($category) {
+            $category->subCategoryes()->each(function ($sub_category) {
+                $sub_category->delete();
+            });
+        });
+    }
 }
