@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"eslam3@gmail.com\",\r\n    \"password\": \"123456789\"\r\n}",
+							"raw": "{\r\n    \"email\": \"eslam2@gmail.com\",\r\n    \"password\": \"123456789\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -24,11 +24,13 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8000/api/admin/login",
+							"raw": "https://backend-elbanna.we-work.pro/api/admin/login",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"backend-elbanna",
+								"we-work",
+								"pro"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"admin",
@@ -728,11 +730,13 @@
 									}
 								},
 								"url": {
-									"raw": "localhost:8000/api/admin/auth/creare-main-category",
+									"raw": "https://backend-elbanna.we-work.pro/api/admin/auth/creare-main-category",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"backend-elbanna",
+										"we-work",
+										"pro"
 									],
-									"port": "8000",
 									"path": [
 										"api",
 										"admin",
@@ -829,7 +833,39 @@
 									]
 								},
 								"url": {
-									"raw": "localhost:8000/api/admin/auth/creare-sub-category",
+									"raw": "https://backend-elbanna.we-work.pro/api/admin/auth/creare-sub-category",
+									"protocol": "https",
+									"host": [
+										"backend-elbanna",
+										"we-work",
+										"pro"
+									],
+									"path": [
+										"api",
+										"admin",
+										"auth",
+										"creare-sub-category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update main category",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category_name_en\": \"updated name en\",\r\n    \"category_name_ar\": \"محدث عربي\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/admin/auth/update-main-category/1",
 									"host": [
 										"localhost"
 									],
@@ -838,7 +874,345 @@
 										"api",
 										"admin",
 										"auth",
-										"creare-sub-category"
+										"update-main-category",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete main category",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://backend-elbanna.we-work.pro/api/admin/auth/delete-main-category/1",
+									"protocol": "https",
+									"host": [
+										"backend-elbanna",
+										"we-work",
+										"pro"
+									],
+									"path": [
+										"api",
+										"admin",
+										"auth",
+										"delete-main-category",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete sub category",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "localhost:8000/api/admin/auth/delete-sub-category/4",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"admin",
+										"auth",
+										"delete-sub-category",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update sub category",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "sub_category_name_en",
+											"value": "website updated",
+											"type": "text"
+										},
+										{
+											"key": "sub_category_name_ar",
+											"value": "موقع updated",
+											"type": "text"
+										},
+										{
+											"key": "title1_ar",
+											"value": "تطبيقات الهاتف الجوال updated",
+											"type": "text"
+										},
+										{
+											"key": "title1_en",
+											"value": "Mobile applications updated",
+											"type": "text"
+										},
+										{
+											"key": "title2_ar",
+											"value": " سنوات من\nصناعة تطبيقات الهاتف الجوال updated",
+											"type": "text"
+										},
+										{
+											"key": "title2_en",
+											"value": "4 years of\nCreate Mobile applications updated",
+											"type": "text"
+										},
+										{
+											"key": "description1_ar",
+											"value": " نحن مزيج يعمل بشكل مثالي من مزود ذي خبرة ، مع ما يقرب من 1000 متخصص على متن الطائرة ، وبدء تشغيل متحمس.\nيساعدنا هذا ، جنبًا إلى جنب مع طريقتنا الفريدة في العمل مع العملاء ، في بناء شراكات طويلة الأمد وإنشاء حلول برمجية مذهلة تلبي احتياجات الأعمال والمستخدمين. updated",
+											"type": "text"
+										},
+										{
+											"key": "description2_en",
+											"value": " We are a perfectly working hybrid of an experienced provider, with almost 1000 specialists on board, and an enthusiastic start-up.\nThis, together with our unique way of working with clients, helps us build long-lasting partnerships and create amazing software solutions that satisfy business’ and users’ needs. ",
+											"type": "text"
+										},
+										{
+											"key": "main_photo",
+											"type": "file",
+											"src": "/E:/a.jpg"
+										},
+										{
+											"key": "photo1",
+											"type": "file",
+											"src": "/E:/a.jpg"
+										},
+										{
+											"key": "photo2",
+											"type": "file",
+											"src": "/E:/a.jpg"
+										},
+										{
+											"key": "photo3",
+											"type": "file",
+											"src": "/E:/a.jpg"
+										},
+										{
+											"key": "photo4",
+											"type": "file",
+											"src": "/E:/a.jpg"
+										},
+										{
+											"key": "photo5",
+											"type": "file",
+											"src": "/E:/a.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8000/api/admin/auth/update-sub-category/5",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"admin",
+										"auth",
+										"update-sub-category",
+										"5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create project",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "sub_category_id",
+											"value": "5",
+											"type": "text"
+										},
+										{
+											"key": "title_en",
+											"value": "title_en",
+											"type": "text"
+										},
+										{
+											"key": "title_ar",
+											"value": "title_ar",
+											"type": "text"
+										},
+										{
+											"key": "description_en",
+											"value": "description_en",
+											"type": "text"
+										},
+										{
+											"key": "description_ar",
+											"value": "description_ar",
+											"type": "text"
+										},
+										{
+											"key": "link1",
+											"value": "link1.com",
+											"type": "text"
+										},
+										{
+											"key": "link2",
+											"value": "link2.com",
+											"type": "text"
+										},
+										{
+											"key": "logo",
+											"type": "file",
+											"src": "/E:/WhatsApp Image 2021-09-25 at 1.33.08 AM.jpeg"
+										},
+										{
+											"key": "attach[0]",
+											"type": "file",
+											"src": "/E:/WhatsApp Image 2021-09-25 at 1.33.08 AM.jpeg"
+										},
+										{
+											"key": "attach[1]",
+											"type": "file",
+											"src": "/E:/WhatsApp Image 2021-09-25 at 1.33.08 AM.jpeg"
+										},
+										{
+											"key": "attach[2]",
+											"type": "file",
+											"src": "/E:/WhatsApp Image 2021-09-25 at 1.33.08 AM.jpeg"
+										},
+										{
+											"key": "attach[3]",
+											"type": "file",
+											"src": "/E:/WhatsApp Image 2021-09-25 at 1.33.08 AM.jpeg"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8000/api/admin/auth/create-project",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"admin",
+										"auth",
+										"create-project"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update project",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title_en",
+											"value": "title_en",
+											"type": "text"
+										},
+										{
+											"key": "title_ar",
+											"value": "title_ar",
+											"type": "text"
+										},
+										{
+											"key": "description_en",
+											"value": "description_en",
+											"type": "text"
+										},
+										{
+											"key": "description_ar",
+											"value": "description_ar",
+											"type": "text"
+										},
+										{
+											"key": "link1",
+											"value": "link1.com",
+											"type": "text"
+										},
+										{
+											"key": "link2",
+											"value": "link2.com",
+											"type": "text"
+										},
+										{
+											"key": "logo",
+											"type": "file",
+											"src": "/E:/a.jpg"
+										},
+										{
+											"key": "attach[0]",
+											"type": "file",
+											"src": "/E:/a.jpg"
+										},
+										{
+											"key": "attach[1]",
+											"type": "file",
+											"src": "/E:/a.jpg"
+										},
+										{
+											"key": "attach[2]",
+											"type": "file",
+											"src": "/E:/a.jpg"
+										},
+										{
+											"key": "attach[3]",
+											"type": "file",
+											"src": "/E:/a.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8000/api/admin/auth/update-project/39",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"admin",
+										"auth",
+										"update-project",
+										"39"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete projects",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/admin/auth/delete-project/43",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"admin",
+										"auth",
+										"delete-project",
+										"43"
 									]
 								}
 							},
@@ -850,7 +1224,7 @@
 						"bearer": [
 							{
 								"key": "token",
-								"value": "LjG988NZn4mKfXOY24P8NIsDKCBBbuioAh8tvzau",
+								"value": "dwRNNsLDox78ErmZyXruW9BsxdLGSd9KaiAEw8SX",
 								"type": "string"
 							}
 						]
@@ -882,11 +1256,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8000/api/user/get-main-categories",
+							"raw": "https://backend-elbanna.we-work.pro/api/user/get-main-categories",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"backend-elbanna",
+								"we-work",
+								"pro"
 							],
-							"port": "8000",
 							"path": [
 								"api",
 								"user",
@@ -943,18 +1319,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://backend-elbanna.we-work.pro/api/user/get-projects/1",
-							"protocol": "https",
+							"raw": "localhost:8000/api/user/get-projects/5",
 							"host": [
-								"backend-elbanna",
-								"we-work",
-								"pro"
+								"localhost"
 							],
+							"port": "8000",
 							"path": [
 								"api",
 								"user",
 								"get-projects",
-								"1"
+								"5"
 							]
 						}
 					},
@@ -966,7 +1340,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8000/api/user/get-project/20",
+							"raw": "localhost:8000/api/user/get-project/42",
 							"host": [
 								"localhost"
 							],
@@ -975,7 +1349,30 @@
 								"api",
 								"user",
 								"get-project",
-								"20"
+								"42"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get main category by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://backend-elbanna.we-work.pro/api/user/get-main-category-by-id/2",
+							"protocol": "https",
+							"host": [
+								"backend-elbanna",
+								"we-work",
+								"pro"
+							],
+							"path": [
+								"api",
+								"user",
+								"get-main-category-by-id",
+								"2"
 							]
 						}
 					},
@@ -1238,55 +1635,6 @@
 			]
 		},
 		{
-			"name": "social media",
-			"item": [
-				{
-					"name": "dummy data",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://backend-elbanna.we-work.pro/api/user/dummy-social",
-							"protocol": "https",
-							"host": [
-								"backend-elbanna",
-								"we-work",
-								"pro"
-							],
-							"path": [
-								"api",
-								"user",
-								"dummy-social"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get-social-info",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://backend-elbanna.we-work.pro/api/user/get-social-info",
-							"protocol": "https",
-							"host": [
-								"backend-elbanna",
-								"we-work",
-								"pro"
-							],
-							"path": [
-								"api",
-								"user",
-								"get-social-info"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
 			"name": "request project",
 			"item": [
 				{
@@ -1427,7 +1775,7 @@
 						},
 						{
 							"key": "email",
-							"value": "eslam4@gmail.com",
+							"value": "eslam2@gmail.com",
 							"type": "text"
 						},
 						{
@@ -1443,11 +1791,13 @@
 					]
 				},
 				"url": {
-					"raw": "localhost:8000/api/create-admin",
+					"raw": "https://backend-elbanna.we-work.pro/api/create-admin",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"backend-elbanna",
+						"we-work",
+						"pro"
 					],
-					"port": "8000",
 					"path": [
 						"api",
 						"create-admin"

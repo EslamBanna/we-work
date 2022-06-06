@@ -25,10 +25,10 @@ class ProjectSubCategoryController extends Controller
                 'description1_ar' => 'required|string',
                 'description2_en' => 'required|string',
                 'main_photo' => 'required',
-                'photo1' => 'required',
-                'photo2' => 'required',
-                'photo3' => 'required',
-                'photo4' => 'required',
+                // 'photo1' => 'required',
+                // 'photo2' => 'required',
+                // 'photo3' => 'required',
+                // 'photo4' => 'required',
             ]);
             if ($validate->fails()) {
                 return $this->returnError('202', $validate->errors()->first());
