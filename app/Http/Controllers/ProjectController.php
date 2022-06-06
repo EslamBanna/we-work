@@ -338,8 +338,10 @@ class ProjectController extends Controller
             if (!$check_sub_category) {
                 return $this->returnError(201, 'sub category not found');
             }
-            $data['category'] = $check_sub_category->sub_category_name_en;
-            $data['projects'] = Project::where('sub_category_id', $sub_category_id)->get();
+            $data['category'] = $check_sub_category;
+            $data['projects'] = Project::with('image')
+            ->where('sub_category_id', $sub_category_id)
+            ->get();
             return $this->returnData('data', $data);
         } catch (\Exception $e) {
             return $this->returnError(201, $e->getMessage());
