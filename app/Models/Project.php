@@ -33,6 +33,15 @@ class Project extends Model
         return $this->hasOne(ProjectAttach::class, 'project_id');
     }
 
+    public static function boot()
+    {
+        parent::boot();
+        self::deleting(function ($project) {
+            $project->attachs()->each(function ($attach) {
+                $attach->delete();
+            });
+        });
+    }
 
     // public function getTypeEnAttribute($value)
     // {

@@ -157,31 +157,31 @@ class ProjectSubCategoryController extends Controller
             }
             if ($request->hasFile('photo1')) {
                 if ($photo1 != "") {
-                    unlink('/images/project_sub_category/' . $photo1);
+                    unlink('images/project_sub_category/' . $photo1);
                 }
                 $photo1 = $this->saveImage($request->file('photo1'), 'project_sub_category');
             }
             if ($request->hasFile('photo2')) {
                 if ($photo2 != "") {
-                    unlink('/images/project_sub_category/' . $photo2);
+                    unlink('images/project_sub_category/' . $photo2);
                 }
                 $photo2 = $this->saveImage($request->file('photo2'), 'project_sub_category');
             }
             if ($request->hasFile('photo3')) {
                 if ($photo3 != "") {
-                    unlink('/images/project_sub_category/' . $photo3);
+                    unlink('images/project_sub_category/' . $photo3);
                 }
                 $photo3 = $this->saveImage($request->file('photo3'), 'project_sub_category');
             }
             if ($request->hasFile('photo4')) {
                 if ($photo4 != "") {
-                    unlink('/images/project_sub_category/' . $photo4);
+                    unlink('images/project_sub_category/' . $photo4);
                 }
                 $photo4 = $this->saveImage($request->file('photo4'), 'project_sub_category');
             }
             if ($request->hasFile('photo5')) {
                 if ($photo5 != "") {
-                    unlink('/images/project_sub_category/' . $photo5);
+                    unlink('images/project_sub_category/' . $photo5);
                 }
                 $photo5 = $this->saveImage($request->file('photo5'), 'project_sub_category');
             }
