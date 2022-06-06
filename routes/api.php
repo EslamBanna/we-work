@@ -71,6 +71,11 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/creare-sub-category', [ProjectSubCategoryController::class, 'createSubCategory']);
         Route::post('/update-sub-category/{id}', [ProjectSubCategoryController::class, 'updateSubCategory']);
         Route::delete('/delete-sub-category/{id}', [ProjectSubCategoryController::class, 'deleteSubCategory']);
+        
+        Route::post('/create-project', [ProjectController::class, 'createProject']);
+        Route::post('/update-project/{id}', [ProjectController::class, 'updateProject']);
+        Route::delete('/delete-project/{id}', [ProjectController::class, 'deleteProject']);
+
         Route::get('/get-all-request-projects', [RequestProjectController::class, 'getAllRequestProjects']);
         Route::get('/get-request-project/{id}', [RequestProjectController::class, 'getRequestProject']);
         Route::delete('/delete-request-project/{id}', [RequestProjectController::class, 'deleteRequestProject']);

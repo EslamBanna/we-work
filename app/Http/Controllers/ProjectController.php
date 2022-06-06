@@ -223,6 +223,114 @@ class ProjectController extends Controller
         }
     }
 
+    public function createProject(Request $request)
+    {
+        try {
+            DB::beginTransaction();
+            $validate = Validator::make($request->all(), [
+                'sub_category_id' => 'required|exists:project_sub_categories,id',
+                'title_en' => 'required',
+                'title_ar' => 'required',
+                'description_en' => 'required',
+                'description_ar' => 'required',
+                'attach' => 'required',
+            ]);
+            if ($validate->fails()) {
+                return $this->returnError(201, $validate->errors()->first());
+            }
+            $logo = "";
+            if ($request->hasFile('logo')) {
+                $logo = $this->saveImage($request->file('logo'), 'projects_logo');
+            }
+            $project_id = Project::insertGetId([
+                'sub_category_id' => $request->sub_category_id,
+                'title_en' => $request->title_en,
+                'title_ar' => $request->title_ar,
+                'description_en' => $request->description_en,
+                'description_ar' => $request->description_ar,
+                'link1' => $request->link1,
+                'link2' => $request->link2,
+                'logo' => $logo
+            ]);
+            foreach ($request->attach as $attach) {
+                $file = $this->saveImage($attach, 'projects');
+                ProjectAttach::create([
+                    'project_id' => $project_id,
+                    'attach' => $file
+                ]);
+            }
+            DB::commit();
+            return $this->returnSuccessMessage('success');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return $this->returnError(201, $e->getMessage());
+        }
+    }
+
+    public function updateProject($id, Request $request)
+    {
+        try {
+            DB::beginTransaction();
+            $validate = Validator::make($request->all(), [
+                'title_en' => 'required',
+                'title_ar' => 'required',
+                'description_en' => 'required',
+                'description_ar' => 'required',
+                'attach' => 'required',
+            ]);
+            if ($validate->fails()) {
+                return $this->returnError(201, $validate->errors()->first());
+            }
+            $project = Project::find($id);
+            if (!$project) {
+                return $this->returnError(201, 'project not found');
+            }
+            $logo = "";
+            if ($request->hasFile('logo')) {
+                $logo = $this->saveImage($request->file('logo'), 'projects_logo');
+            }
+            $project_id = Project::insertGetId([
+                'sub_category_id' => $project->sub_category_id,
+                'title_en' => $request->title_en,
+                'title_ar' => $request->title_ar,
+                'description_en' => $request->description_en,
+                'description_ar' => $request->description_ar,
+                'link1' => $request->link1,
+                'link2' => $request->link2,
+                'logo' => $logo
+            ]);
+            foreach ($request->attach as $attach) {
+                $file = $this->saveImage($attach, 'projects');
+                ProjectAttach::create([
+                    'project_id' => $project_id,
+                    'attach' => $file
+                ]);
+            }
+            $project->delete();
+            DB::commit();
+            return $this->returnSuccessMessage('success');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return $this->returnError(201, $e->getMessage());
+        }
+    }
+
+    public function deleteProject($id)
+    {
+        try {
+            DB::beginTransaction();
+            $project = Project::find($id);
+            if (!$project) {
+                return $this->returnError(201, 'project not found');
+            }
+            $project->delete();
+            DB::commit();
+            return $this->returnSuccessMessage('success');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return $this->returnError(201, $e->getMessage());
+        }
+    }
     public function getProjects($sub_category_id)
     {
         try {
@@ -253,12 +361,12 @@ class ProjectController extends Controller
                 $data['project']['app_store'] = $data['project']['link2'];
                 unset($data['project']['link1']);
                 unset($data['project']['link2']);
-            }else if($catgegory->sub_category_name_en == 'website'){
+            } else if ($catgegory->sub_category_name_en == 'website') {
                 $data['project']['web_link'] = $data['project']['link1'];
                 unset($data['project']['link1']);
                 unset($data['project']['link2']);
                 unset($data['project']['logo']);
-            }else{
+            } else {
                 unset($data['project']['logo']);
                 unset($data['project']['link1']);
                 unset($data['project']['link2']);
@@ -309,7 +417,7 @@ class ProjectController extends Controller
             return $this->returnError(201, $e->getMessage());
         }
     }
-    // 
+    // old
     public function getAllMobileProjects()
     {
         try {
@@ -336,6 +444,7 @@ class ProjectController extends Controller
         }
     }
 
+    // old
     public function discoverMoreApps()
     {
         try {
@@ -356,6 +465,7 @@ class ProjectController extends Controller
         }
     }
 
+    // old
     public function getAppInfo($id)
     {
         try {
@@ -391,6 +501,7 @@ class ProjectController extends Controller
         }
     }
 
+    // old
     public function getAllWebsiteProjects()
     {
         try {
@@ -416,6 +527,7 @@ class ProjectController extends Controller
         }
     }
 
+    // old
     public function getWebsiteInfo($id)
     {
         try {
@@ -451,6 +563,7 @@ class ProjectController extends Controller
         }
     }
 
+    // old
     public function getProjectsWithType($type)
     {
         try {
@@ -481,6 +594,7 @@ class ProjectController extends Controller
         }
     }
 
+    // old
     public function getProjectInfo($id)
     {
         try {
@@ -505,6 +619,7 @@ class ProjectController extends Controller
     }
 
 
+    // old
     public function getMotionGraphicsProjects()
     {
         try {
@@ -530,6 +645,7 @@ class ProjectController extends Controller
         }
     }
 
+    // old
     public function getMotionGraphicInfo($id)
     {
         try {

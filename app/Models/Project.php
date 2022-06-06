@@ -42,15 +42,6 @@ class Project extends Model
             });
         });
     }
-
-    // public function getTypeEnAttribute($value)
-    // {
-    //     return $value ?? "";
-    // }
-    // public function getTypeArAttribute($value)
-    // {
-    //     return $value ?? "";
-    // }
     public function getLogoAttribute($value)
     {
         $actual_link = (isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
