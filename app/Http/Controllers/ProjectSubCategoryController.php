@@ -24,7 +24,7 @@ class ProjectSubCategoryController extends Controller
                 'title2_en' => 'required|string',
                 'description1_ar' => 'required|string',
                 'description2_en' => 'required|string',
-                'main_photo' => 'required',
+                // 'main_photo' => 'required',
                 // 'photo1' => 'required',
                 // 'photo2' => 'required',
                 // 'photo3' => 'required',
@@ -133,11 +133,11 @@ class ProjectSubCategoryController extends Controller
                 'title2_en' => 'required|string',
                 'description1_ar' => 'required|string',
                 'description2_en' => 'required|string',
-                'main_photo' => 'required',
-                'photo1' => 'required',
-                'photo2' => 'required',
-                'photo3' => 'required',
-                'photo4' => 'required',
+                // 'main_photo' => 'required',
+                // 'photo1' => 'required',
+                // 'photo2' => 'required',
+                // 'photo3' => 'required',
+                // 'photo4' => 'required',
             ]);
             if ($validate->fails()) {
                 return $this->returnError('202', $validate->errors()->first());
@@ -150,39 +150,39 @@ class ProjectSubCategoryController extends Controller
             $photo4 = substr($sub_category->photo4, $link_len);
             $photo5 = substr($sub_category->photo5, $link_len);
             if ($request->hasFile('main_photo')) {
-                if ($main_photo != "") {
-                    unlink('images/project_sub_category/' . $main_photo);
-                }
+                // if ($main_photo != "") {
+                //     unlink('images/project_sub_category/' . $main_photo);
+                // }
                 $main_photo = $this->saveImage($request->file('main_photo'), 'project_sub_category');
             }
             if ($request->hasFile('photo1')) {
-                if ($photo1 != "") {
-                    unlink('images/project_sub_category/' . $photo1);
-                }
+                // if ($photo1 != "") {
+                //     unlink('images/project_sub_category/' . $photo1);
+                // }
                 $photo1 = $this->saveImage($request->file('photo1'), 'project_sub_category');
             }
             if ($request->hasFile('photo2')) {
-                if ($photo2 != "") {
-                    unlink('images/project_sub_category/' . $photo2);
-                }
+                // if ($photo2 != "") {
+                //     unlink('images/project_sub_category/' . $photo2);
+                // }
                 $photo2 = $this->saveImage($request->file('photo2'), 'project_sub_category');
             }
             if ($request->hasFile('photo3')) {
-                if ($photo3 != "") {
-                    unlink('images/project_sub_category/' . $photo3);
-                }
+                // if ($photo3 != "") {
+                //     unlink('images/project_sub_category/' . $photo3);
+                // }
                 $photo3 = $this->saveImage($request->file('photo3'), 'project_sub_category');
             }
             if ($request->hasFile('photo4')) {
-                if ($photo4 != "") {
-                    unlink('images/project_sub_category/' . $photo4);
-                }
+                // if ($photo4 != "") {
+                //     unlink('images/project_sub_category/' . $photo4);
+                // }
                 $photo4 = $this->saveImage($request->file('photo4'), 'project_sub_category');
             }
             if ($request->hasFile('photo5')) {
-                if ($photo5 != "") {
-                    unlink('images/project_sub_category/' . $photo5);
-                }
+                // if ($photo5 != "") {
+                //     unlink('images/project_sub_category/' . $photo5);
+                // }
                 $photo5 = $this->saveImage($request->file('photo5'), 'project_sub_category');
             }
             $sub_category->update([

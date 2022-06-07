@@ -253,13 +253,16 @@ class ProjectController extends Controller
                 'video' => $request->video,
                 'logo' => $logo
             ]);
-            foreach ($request->attach as $attach) {
-                $file = $this->saveImage($attach, 'projects');
-                ProjectAttach::create([
-                    'project_id' => $project_id,
-                    'attach' => $file
-                ]);
+            if(isset($request->attach)){
+                foreach ($request->attach as $attach) {
+                    $file = $this->saveImage($attach, 'projects');
+                    ProjectAttach::create([
+                        'project_id' => $project_id,
+                        'attach' => $file
+                    ]);
+                }
             }
+     
             DB::commit();
             return $this->returnSuccessMessage('success');
         } catch (\Exception $e) {
