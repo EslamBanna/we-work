@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"eslam2@gmail.com\",\r\n    \"password\": \"123456789\"\r\n}",
+							"raw": "{\r\n    \"email\": \"eslam2@gmail.com\",\r\n    \"password\": \"123\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -24,13 +24,11 @@
 							}
 						},
 						"url": {
-							"raw": "https://backend-elbanna.we-work.pro/api/admin/login",
-							"protocol": "https",
+							"raw": "localhost:8000/api/admin/login",
 							"host": [
-								"backend-elbanna",
-								"we-work",
-								"pro"
+								"localhost"
 							],
+							"port": "8000",
 							"path": [
 								"api",
 								"admin",
@@ -1176,11 +1174,26 @@
 											"key": "attach[3]",
 											"type": "file",
 											"src": "/E:/a.jpg"
+										},
+										{
+											"key": "deleted_attaches[0]",
+											"value": "10",
+											"type": "text"
+										},
+										{
+											"key": "deleted_attaches[1]",
+											"value": "11",
+											"type": "text"
+										},
+										{
+											"key": "deleted_attaches[2]",
+											"value": "12",
+											"type": "text"
 										}
 									]
 								},
 								"url": {
-									"raw": "localhost:8000/api/admin/auth/update-project/39",
+									"raw": "localhost:8000/api/admin/auth/update-project/22",
 									"host": [
 										"localhost"
 									],
@@ -1190,7 +1203,7 @@
 										"admin",
 										"auth",
 										"update-project",
-										"39"
+										"22"
 									]
 								}
 							},
@@ -1224,7 +1237,7 @@
 						"bearer": [
 							{
 								"key": "token",
-								"value": "dwRNNsLDox78ErmZyXruW9BsxdLGSd9KaiAEw8SX",
+								"value": "FdeK8VirUZSosPITK66WZ2EyDZa3T6ZnsZN9gBKU",
 								"type": "string"
 							}
 						]
@@ -1340,7 +1353,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8000/api/user/get-project/42",
+							"raw": "localhost:8000/api/user/get-project/30",
 							"host": [
 								"localhost"
 							],
@@ -1349,7 +1362,7 @@
 								"api",
 								"user",
 								"get-project",
-								"42"
+								"30"
 							]
 						}
 					},
@@ -1780,7 +1793,7 @@
 						},
 						{
 							"key": "password",
-							"value": "123456789",
+							"value": "123",
 							"type": "text"
 						},
 						{
@@ -1791,13 +1804,11 @@
 					]
 				},
 				"url": {
-					"raw": "https://backend-elbanna.we-work.pro/api/create-admin",
-					"protocol": "https",
+					"raw": "localhost:8000/api/create-admin",
 					"host": [
-						"backend-elbanna",
-						"we-work",
-						"pro"
+						"localhost"
 					],
+					"port": "8000",
 					"path": [
 						"api",
 						"create-admin"

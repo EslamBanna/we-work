@@ -270,13 +270,13 @@ class ProjectController extends Controller
     public function updateProject($id, Request $request)
     {
         try {
+            // return $request;
             DB::beginTransaction();
             $validate = Validator::make($request->all(), [
                 'title_en' => 'required',
                 'title_ar' => 'required',
                 'description_en' => 'required',
                 'description_ar' => 'required',
-                'attach' => 'required',
             ]);
             if ($validate->fails()) {
                 return $this->returnError(201, $validate->errors()->first());
@@ -285,28 +285,39 @@ class ProjectController extends Controller
             if (!$project) {
                 return $this->returnError(201, 'project not found');
             }
-            $logo = "";
+            $link_len = strlen((isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/images/projects_logo/');
+            $logo = substr($project->logo, $link_len);
             if ($request->hasFile('logo')) {
+                if ($logo != "" || $logo != null) {
+                    unlink('images/projects_logo/' . $logo);
+                }
                 $logo = $this->saveImage($request->file('logo'), 'projects_logo');
             }
-            $project_id = Project::insertGetId([
-                'sub_category_id' => $project->sub_category_id,
-                'title_en' => $request->title_en,
-                'title_ar' => $request->title_ar,
-                'description_en' => $request->description_en,
-                'description_ar' => $request->description_ar,
-                'link1' => $request->link1,
-                'link2' => $request->link2,
+            $project->update([
+                'title_en' => $request->title_en ?? $project->title_en,
+                'title_ar' => $request->title_ar ?? $project->title_ar,
+                'description_en' => $request->description_en ?? $project->description_en,
+                'description_ar' => $request->description_ar ?? $project->description_ar,
+                'link1' => $request->link1 ?? $project->link1,
+                'link2' => $request->link2 ?? $project->link2,
                 'logo' => $logo
             ]);
             foreach ($request->attach as $attach) {
                 $file = $this->saveImage($attach, 'projects');
                 ProjectAttach::create([
-                    'project_id' => $project_id,
+                    'project_id' => $project['id'],
                     'attach' => $file
                 ]);
             }
-            $project->delete();
+            foreach ($request->deleted_attaches as $attach) {
+                $attach = ProjectAttach::find($attach);
+                if ($attach) {
+                    $link_len = strlen((isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/images/projects/');
+                    $old_attach = substr($attach->attach, $link_len);
+                    unlink('images/projects/' . $old_attach);
+                    $attach->delete();
+                }
+            }
             DB::commit();
             return $this->returnSuccessMessage('success');
         } catch (\Exception $e) {
@@ -340,8 +351,8 @@ class ProjectController extends Controller
             }
             $data['category'] = $check_sub_category;
             $data['projects'] = Project::with('image')
-            ->where('sub_category_id', $sub_category_id)
-            ->get();
+                ->where('sub_category_id', $sub_category_id)
+                ->get();
             return $this->returnData('data', $data);
         } catch (\Exception $e) {
             return $this->returnError(201, $e->getMessage());
@@ -357,22 +368,23 @@ class ProjectController extends Controller
             }
             $catgegory = ProjectSubCategory::find($check_project->sub_category_id);
             $data['project_sub_category'] = $catgegory['sub_category_name_en'];
+            $data['project_sub_category_ar'] = $catgegory['sub_category_name_ar'];
             $data['project'] = $check_project;
-            if ($catgegory->sub_category_name_en == 'mobile application') {
-                $data['project']['google_play'] = $data['project']['link1'];
-                $data['project']['app_store'] = $data['project']['link2'];
-                unset($data['project']['link1']);
-                unset($data['project']['link2']);
-            } else if ($catgegory->sub_category_name_en == 'website') {
-                $data['project']['web_link'] = $data['project']['link1'];
-                unset($data['project']['link1']);
-                unset($data['project']['link2']);
-                unset($data['project']['logo']);
-            } else {
-                unset($data['project']['logo']);
-                unset($data['project']['link1']);
-                unset($data['project']['link2']);
-            }
+            // if ($catgegory->sub_category_name_en == 'mobile application') {
+            //     $data['project']['google_play'] = $data['project']['link1'];
+            //     $data['project']['app_store'] = $data['project']['link2'];
+            //     unset($data['project']['link1']);
+            //     unset($data['project']['link2']);
+            // } else if ($catgegory->sub_category_name_en == 'website') {
+            //     $data['project']['web_link'] = $data['project']['link1'];
+            //     unset($data['project']['link1']);
+            //     unset($data['project']['link2']);
+            //     unset($data['project']['logo']);
+            // } else {
+            //     unset($data['project']['logo']);
+            //     unset($data['project']['link1']);
+            //     unset($data['project']['link2']);
+            // }
             return $this->returnData('data', $data);
         } catch (\Exception $e) {
             return $this->returnError(201, $e->getMessage());
