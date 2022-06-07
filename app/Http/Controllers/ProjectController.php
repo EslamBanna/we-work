@@ -233,7 +233,7 @@ class ProjectController extends Controller
                 'title_ar' => 'required',
                 'description_en' => 'required',
                 'description_ar' => 'required',
-                'attach' => 'required',
+                // 'attach' => 'required',
             ]);
             if ($validate->fails()) {
                 return $this->returnError(201, $validate->errors()->first());
@@ -250,6 +250,7 @@ class ProjectController extends Controller
                 'description_ar' => $request->description_ar,
                 'link1' => $request->link1,
                 'link2' => $request->link2,
+                'video' => $request->video,
                 'logo' => $logo
             ]);
             foreach ($request->attach as $attach) {
@@ -288,9 +289,9 @@ class ProjectController extends Controller
             $link_len = strlen((isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/images/projects_logo/');
             $logo = substr($project->logo, $link_len);
             if ($request->hasFile('logo')) {
-                if ($logo != "" || $logo != null) {
-                    unlink('images/projects_logo/' . $logo);
-                }
+                // if ($logo != "" || $logo != null) {
+                //     unlink('images/projects_logo/' . $logo);
+                // }
                 $logo = $this->saveImage($request->file('logo'), 'projects_logo');
             }
             $project->update([
@@ -300,24 +301,30 @@ class ProjectController extends Controller
                 'description_ar' => $request->description_ar ?? $project->description_ar,
                 'link1' => $request->link1 ?? $project->link1,
                 'link2' => $request->link2 ?? $project->link2,
+                'video' => $request->video ?? $project->video,
                 'logo' => $logo
             ]);
-            foreach ($request->attach as $attach) {
-                $file = $this->saveImage($attach, 'projects');
-                ProjectAttach::create([
-                    'project_id' => $project['id'],
-                    'attach' => $file
-                ]);
-            }
-            foreach ($request->deleted_attaches as $attach) {
-                $attach = ProjectAttach::find($attach);
-                if ($attach) {
-                    $link_len = strlen((isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/images/projects/');
-                    $old_attach = substr($attach->attach, $link_len);
-                    unlink('images/projects/' . $old_attach);
-                    $attach->delete();
+            if (isset($request->attach)) {
+                foreach ($request->attach as $attach) {
+                    $file = $this->saveImage($attach, 'projects');
+                    ProjectAttach::create([
+                        'project_id' => $project['id'],
+                        'attach' => $file
+                    ]);
                 }
             }
+            if (isset($request->deleted_attaches)) {
+                foreach ($request->deleted_attaches as $attach) {
+                    $attach = ProjectAttach::find($attach);
+                    if ($attach) {
+                        $link_len = strlen((isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/images/projects/');
+                        $old_attach = substr($attach->attach, $link_len);
+                        // unlink('images/projects/' . $old_attach);
+                        $attach->delete();
+                    }
+                }
+            }
+
             DB::commit();
             return $this->returnSuccessMessage('success');
         } catch (\Exception $e) {

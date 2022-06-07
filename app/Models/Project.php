@@ -18,6 +18,7 @@ class Project extends Model
         'description_ar',
         'link1',
         'link2',
+        'video',
         'selected'
     ];
 

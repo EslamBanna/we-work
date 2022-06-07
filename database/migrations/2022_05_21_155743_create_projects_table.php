@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('description_ar')->nullable();
             $table->string('link1')->nullable();
             $table->string('link2')->nullable();
+            $table->string('video')->nullable();
             $table->boolean('selected')->default(false);
             // $table->timestamps();
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
