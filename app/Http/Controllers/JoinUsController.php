@@ -80,7 +80,7 @@ class JoinUsController extends Controller
             $join_us->delete();
             $before_file_name_length = strlen((isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/images/resumes/');
             $file_name = substr($join_us->resume, $before_file_name_length);
-            unlink('images/resumes/' . $file_name);
+            // unlink('images/resumes/' . $file_name);
             return $this->returnSuccessMessage('success');
         } catch (\Exception $e) {
             return $this->returnError(201, $e->getMessage());
